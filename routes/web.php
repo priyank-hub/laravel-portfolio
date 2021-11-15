@@ -21,6 +21,3 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/about-us', function () {
-    return Inertia::render('About', ['about_us' => 'working']);
-});
