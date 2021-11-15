@@ -1,0 +1,43 @@
+// require('./bootstrap');
+
+// import Vue from 'vue'
+// import { createInertiaApp } from '@inertiajs/inertia-vue'
+
+
+// import { InertiaProgress } from "@inertiajs/progress";
+ 
+// Vue.config.productionTip = false
+
+// InertiaProgress.init()
+
+// Vue.prototype.$route = (...args) => Route(...args).url()
+
+// const app = document.getElementById('app')
+// const pages = require.context('./', true, /\.vue$/i)
+
+// pages
+//     .keys()
+//     .map((key) =>
+//         Vue.component(key.split('/').pop().split('.')[0], pages(key).default),
+//     )
+
+// createInertiaApp({
+//   resolve: name => require(`./Pages/${name}`),
+//   setup({ el, app, props }) {
+//       new Vue({
+//           render: h => h(app, props),
+//       }).$mount(el)
+//   },
+// })
+
+import Vue from 'vue'
+import { createInertiaApp } from '@inertiajs/inertia-vue'
+
+createInertiaApp({
+  resolve: name => require(`./Pages/${name}`),
+  setup({ el, App, props }) {
+    new Vue({
+      render: h => h(App, props),
+    }).$mount(el)
+  },
+})
