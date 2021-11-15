@@ -14,7 +14,7 @@
  
     <script src="https://kit.fontawesome.com/5652712d20.js" crossorigin="anonymous"></script>
    </head>
-  <body>
+  <body> 
     @inertia
   </body>
 </html>
