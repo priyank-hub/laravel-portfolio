@@ -33,11 +33,14 @@
 import Vue from 'vue'
 import { createInertiaApp } from '@inertiajs/inertia-vue'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import Route from '../../vendor/tightenco/ziggy/src/js/route.js'
 
 // Make BootstrapVue available throughout your project
 Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
+
+Vue.mixin({ methods: { route: window.route } })
 
 createInertiaApp({
   resolve: name => require(`./Pages/${name}`),
