@@ -70,13 +70,6 @@ class LoginController extends Controller
         return $request->only($this->username(), 'password');
     }
 
-    // public function redirectTo()
-    // {
-    //     // dd('redirect');
-    //     return Inertia::render('Admin/Home');
-    //     // return 'Not an admin';
-    // }
-
     public function logout(Request $request)
     {
         Auth::logout();
