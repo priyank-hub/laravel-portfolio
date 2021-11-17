@@ -49,7 +49,7 @@
                             <template #button-content class="" style="background-color: transparent">
                                 <span class="text-dark mx-2">{{ user.name }}</span>
                             </template>
-                            <b-dropdown-item>
+                            <b-dropdown-item :href="route('home')" target="_blank">
                                 Portfolio
                             </b-dropdown-item>
                             
