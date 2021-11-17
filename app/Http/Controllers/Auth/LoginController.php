@@ -54,7 +54,10 @@ class LoginController extends Controller
                 $request->session()->put('auth.password_confirmed_at', time());
             }
 
-            return Redirect::route('admin.dashboard');
+            return Redirect::route('admin.analytics');
+        }
+        else {
+            dd('not logged in');
         }
     }
 
