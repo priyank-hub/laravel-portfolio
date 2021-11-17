@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\Auth\LoginController;
@@ -32,8 +33,12 @@ Route::get('/feedback', [DashboardController::class, 'feedback'])
 ->name('admin.feedback')
 ->middleware('auth');
 
-Route::get('/projects', [DashboardController::class, 'projects'])
+Route::get('/projects', [ProjectController::class, 'index'])
 ->name('admin.projects')
+->middleware('auth');
+
+Route::get('/projects/create', [ProjectController::class, 'create'])
+->name('admin.projects.create')
 ->middleware('auth');
 
 Route::get('/profile', [DashboardController::class, 'profile'])

@@ -100,6 +100,7 @@ export default {
 
     .slot {
         margin-left: 200px;
+        font-family: 'Poppins';
     }
 
     .side {
