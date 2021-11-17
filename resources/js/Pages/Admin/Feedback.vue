@@ -1,7 +1,7 @@
 <template>
     <div>
         <AdminLayout :user="user">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="p-3">
                     <h4 class="text-muted">
                         <i class="fas fa-envelope-open mx-2"></i>

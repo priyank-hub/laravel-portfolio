@@ -138,4 +138,8 @@ export default {
         box-shadow: 0 14px 28px rgb(0 0 0 / 20%);
         background-color: #0b0c2e;
     }
+
+    ul li {
+        margin-top: 20px;
+    }
 </style>
