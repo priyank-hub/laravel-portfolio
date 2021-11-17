@@ -14,15 +14,40 @@
                         <div class="col-12">
                             <div class="">
                                 <table class="table table-responsive table-striped bg-white">
-                                    <tr>
-                                        <th>Project Name</th>
-                                        <th>Description</th>
-                                        <th>Tech-Stack</th>
-                                        <th>Image</th>
-                                        <th>Repository</th>
-                                        <th>Preview</th>
-                                        <th>Note</th>
-                                    </tr>
+                                    <thead>
+                                        <tr>
+                                            <th>Project Name</th>
+                                            <th>Description</th>
+                                            <th>Tech-Stack</th>
+                                            <th>Image</th>
+                                            <th>Repository</th>
+                                            <th>Preview</th>
+                                            <th>Note</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="(project, key) in projects" :key="key">
+                                            <td>{{ project.name }}</td>
+                                            <td>
+                                                {{ project.description }}
+                                            </td>
+                                            <td>
+                                                
+                                            </td>
+                                            <td>
+                                                <img :src="project.image_path" alt="" width="30%">
+                                            </td>
+                                            <td>
+                                                {{ project.repo_path }}
+                                            </td>
+                                            <td>
+                                                {{ project.live_path }}
+                                            </td>
+                                            <td>
+                                                {{ project.note }}
+                                            </td>
+                                        </tr>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -53,6 +78,7 @@ export default {
     },
     props: {
         user: Object,
+        projects: Array,
     }
 }
 </script>

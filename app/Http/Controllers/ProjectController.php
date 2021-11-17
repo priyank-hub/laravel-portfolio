@@ -6,6 +6,7 @@ use App\Models\Project;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -16,8 +17,15 @@ class ProjectController extends Controller
      */
     public function index()
     {
+        $projects = Project::get();
+
+        foreach($projects as $p) {
+
+        }
+        // dd($projects->toArray());
         return Inertia::render('Admin/Projects/Projects', [
             'user' => Auth::user(),
+            'projects' => $projects->toArray(),
         ]);
     }
 
@@ -41,7 +49,31 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => ['required', 'max:255'],
+            'description' => ['required'],
+            'repo_path' => ['nullable', 'max:255'],
+            'live_path' => ['nullable', 'max:255'],
+            'note' => ['nullable', 'max:255'],
+            'technologies.*.name' => ['required', 'max:255'], 
+        ]);
+        
+        // dd($request->file('image'));
+        if ($request->hasFile('image')) {
+            $path = Storage::putFile('thumbnail', $request->file('image'));
+            $url = Storage::url($request->file('image'));
+            // $path = $request->file('image')->store('thumbnail');
+        }
+        // dd($url);
+        Project::create([
+            'user_id' => Auth::user()->id,
+            'name' => $request->name,
+            'description' => $request->description,
+            'repo_path' => $request->repo_path,
+            'live_path' => $request->live_path,
+            'note' => $request->note,
+            'image_path' => $url,
+        ]);
     }
 
     /**

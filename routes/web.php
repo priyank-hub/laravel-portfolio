@@ -33,6 +33,7 @@ Route::get('/feedback', [DashboardController::class, 'feedback'])
 ->name('admin.feedback')
 ->middleware('auth');
 
+// projects
 Route::get('/projects', [ProjectController::class, 'index'])
 ->name('admin.projects')
 ->middleware('auth');
@@ -41,6 +42,11 @@ Route::get('/projects/create', [ProjectController::class, 'create'])
 ->name('admin.projects.create')
 ->middleware('auth');
 
+Route::post('projects', [ProjectController::class, 'store'])
+    ->name('admin.projects.store')
+    ->middleware('auth');
+
+// profile
 Route::get('/profile', [DashboardController::class, 'profile'])
 ->name('admin.profile')
 ->middleware('auth');
