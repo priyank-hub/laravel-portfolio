@@ -105,12 +105,19 @@
                                     </div>
                                 </div>
                             </div>
-                            <div>
+                            <!-- <div>
                                 <b-button variant="" v-b-modal.hire-modal class="more-button rounded-0 p-2 px-4 my-4">
                                     <span class="browse">
                                         HIRE ME
                                     </span>
                                     <i class="fas fa-arrow-right icon mx-2"></i>
+                                </b-button>
+                            </div> -->
+                            <div class="mt-5" style="text-align: center">
+                                <b-button class="hire border-0 text-white">
+                                    <span class="" style="font-size: 14px; letter-spacing: 2px">
+                                        Hire Me
+                                    </span>
                                 </b-button>
                             </div>
                         </b-card-text>
@@ -262,6 +269,17 @@ button.close {
     margin: -1rem -1rem -1rem auto;
 }
 
+.hire:hover {
+    box-shadow: 0 14px 28px rgb(0 0 0 / 20%);
+    color: #fff !important;
+}
+
+.hire {
+    background-color: #8444df; 
+    border-radius: 30px; 
+    padding: 13px 35px;
+}
+
 @media (max-width: 768px) {
     .section-cont {
         margin-bottom: 30px;
@@ -300,6 +318,10 @@ button.close {
 
     .text {
         text-align: center !important;
+    }
+
+    .hire{
+        box-shadow: 0px 14px 28px rgb(0 0 0 / 10%);
     }
 }
 
