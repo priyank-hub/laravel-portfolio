@@ -26,10 +26,11 @@ use App\Http\Controllers\Auth\RegisterController;
 //     return Inertia::render('Home', ['test' => 'working']);
 // });
 
+
+//analytics
 Route::get('/analytics', [DashboardController::class, 'index'])
     ->name('admin.analytics')
     ->middleware('auth');
-
 
 // feedback
 Route::get('/feedback', [FeedbackController::class, 'index'])
@@ -59,6 +60,10 @@ Route::get('/profile', [DashboardController::class, 'profile'])
 ->middleware('auth');
 
 Route::get('/', [PortfolioController::class, 'index'])->name('home');
+Route::get('/about', [PortfolioController::class, 'about'])->name('about');
+Route::get('/skills', [PortfolioController::class, 'skills'])->name('skills');
+Route::get('/works', [PortfolioController::class, 'works'])->name('works');
+Route::get('/contact', [PortfolioController::class, 'contact'])->name('contact');
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'login'])->name('admin.login');

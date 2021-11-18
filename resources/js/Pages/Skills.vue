@@ -31,14 +31,13 @@
 </template>
 
 <script>
+import Layout from '../Shared/Layout.vue'
 export default {
     name: 'Skills',
     props: {
 
     },
-    components: {
-
-    },
+    layout: Layout,
     data() {
         return {
             skills: [

@@ -66,11 +66,13 @@
     </div>
 </template>
 <script>
+import Layout from '../Shared/Layout.vue'
 export default {
     name: 'Works',
     props: {
 
     },
+    layout: Layout,
     components: {
 
     },

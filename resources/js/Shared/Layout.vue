@@ -17,25 +17,25 @@
             <div class="nav flex-column p-4" id="nav-content">
                 <ul class="navbar-nav navigation flex-column">
                     <li class="nav-item" @click="hideSidebar()">
-                        <a class="nav-link py-3 rounded" href="#intro">
+                        <a class="nav-link py-3 rounded" :href="this.route('home')">
                             <i class="fas fa-home"></i>
                             <span class="title">Home</span>
                         </a>
                     </li>
                     <li class="nav-item" @click="hideSidebar()">
-                        <a class="nav-link py-3 rounded" href="#about">
+                        <a class="nav-link py-3 rounded" :href="this.route('about')">
                             <i class="fas fa-user"></i>
                             <div class="title">About</div>
                         </a>
                     </li>
                     <li class="nav-item" @click="hideSidebar()">
-                        <a class="nav-link py-3 rounded" href="#skills">
+                        <a class="nav-link py-3 rounded" :href="this.route('skills')">
                             <i class="fas fa-code"></i>
                             <div class="title">Skills</div>
                         </a>
                     </li>
                     <li class="nav-item" @click="hideSidebar()">
-                        <a class="nav-link py-3 rounded" href="#works">
+                        <a class="nav-link py-3 rounded" :href="this.route('works')">
                             <i class="fas fa-code-branch"></i>
                             <div class="title">Works</div>
                         </a>
@@ -44,7 +44,7 @@
             </div>
 
             <div class="nav-item m-3" @click="hideSidebar()">
-                <a class="nav-link py-3 rounded" href="#contact">
+                <a class="nav-link py-3 rounded" :href="this.route('contact')">
                     <i class="fas fa-address-card"></i>
                     <div class="title">
                         Contact
@@ -52,35 +52,25 @@
                 </a>
             </div>
         </nav>
-
         <!-- main content -->
         <div class="slot">
-            <Introduction id="intro"/>
-            <AboutMe id="about"/>
-            <Skills id="skills" />
-            <Works id="works"/>
-            <Contact id="contact"/>
+            <slot />
+            <flash />
         </div>
     </div>
 </template>
 <script>
-import Introduction from '../Pages/Introduction.vue'
-import AboutMe from '../Pages/AboutMe.vue'
-import Skills from '../Pages/Skills.vue'
-import Works from '../Pages/Works.vue'
-import Contact from '../Pages/Contact.vue'
-
+import Flash from './Flash.vue'
 export default {
     name: 'Layout',
     props: {
 
     },
     components: {
-        Introduction,
-        AboutMe,
-        Skills,
-        Works,
-        Contact,
+        Flash,
+    },
+    mounted() {
+        console.log(this.$page.props);
     },
     data() {
         return {
@@ -205,4 +195,102 @@ export default {
         width: calc(100% - 80px);
         margin-left: 80px;
     }
+    .success {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 15px 25px;
+        min-width: 300px;
+        overflow: hidden;
+        font-size: 14px;
+        color: #3c763d;
+        background: #dff0d8;
+        border-radius: 5px;
+        border-left: 6px solid #3c763d;
+    }
+
+    .error {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 15px 20px;
+        min-width: 300px;
+        overflow: hidden;
+        font-size: 14px;
+        color: #a94442;
+        background: #f2dede;
+        border-radius: 5px;
+        border-left: 6px solid #a94442;
+    }
+</style>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+#app {
+  font-family: 'Poppins';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  background: #f7f7f7;
+}
+.bg-intro {
+    background-image: url('/assets/background.svg');
+    background-position: center top;
+    background-size: 100% auto; 
+    background-repeat: no-repeat;
+}
+/* Header */
+.menu-link {
+    font-weight: 600;
+    cursor: pointer;
+}
+button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+a {
+  color: #0000008c !important;
+  text-decoration: none !important;
+}
+a:hover {
+  color: #222 !important;
+}
+a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-image: linear-gradient(90deg,#833ab4,#fd1d1d 50%,#fcb045);;
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+}
+a {
+  display: block;
+  position: relative;
+  padding: 0.2em 0;
+}
+span a::after {
+  opacity: 1;
+  transform: scale(0);
+  transform-origin: center;
+}
+span a:hover::after,
+span a:focus::after{
+  transform: scale(1);
+}
+
+.introduction {
+    margin-top: 3rem ;
+    margin-bottom: 3rem ;
+  }
+@media (max-width: 768px) {
+
+  .introduction {
+    margin-top: 20px ;
+    margin-bottom: 20px ;
+  }
+}
 </style>

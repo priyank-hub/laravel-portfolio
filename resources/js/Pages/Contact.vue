@@ -50,12 +50,14 @@
 </template>
 
 <script>
+import Layout from '../Shared/Layout.vue'
 import axios from 'axios';
 export default {
     name: 'Contact',
     props: {
 
     },
+    layout: Layout,
     data() {
         return {
             resp: null,
@@ -72,17 +74,17 @@ export default {
     },
     methods: {
         async submit() {
-            await axios.post(this.route('admin.feedback.store', this.form))
-                .then(response => (
-                    console.log(response)
-                    // this.resp = response.status
-                ));
+            // await axios.post(this.route('admin.feedback.store', this.form))
+            //     .then(response => (
+            //         console.log(response)
+            //         // this.resp = response.status
+            //     ));
             
-            // console.log(this.resp);
-            if (this.resp == 200) {
-                window.location.href = '/'
-            }
-            // this.form.post(this.route('admin.feedback.store'));
+            // // console.log(this.resp);
+            // if (this.resp == 200) {
+            //     window.location.href = '/'
+            // }
+            this.form.post(this.route('admin.feedback.store'));
         }
     },
 

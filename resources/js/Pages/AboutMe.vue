@@ -1,4 +1,5 @@
 <template>
+    <Layout>
         <div class="container section-cont">
             <div class="border-bottom" style="text-align: left; margin-bottom: 90px">
                 <span style="letter-spacing: 2px">
@@ -139,39 +140,15 @@
                     </button>
                 </template>
             </b-modal>
-
-
-            <!-- <div class="modal fade" id="hire-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h3 class="m-0">Hire Me</h3>
-                        <button
-                            type="button"
-                            class="close"
-                            data-dismiss="modal"
-                            aria-label="Close"
-                            @click="close()"
-                        >
-                            <i class="fas fa-lg fa-times" />
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <h5>Are you sure you want to delete this contact?</h5>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" id="deleteNo" data-dismiss="modal">No</button>
-                        <button type="button" class="btn btn-primary" id="deleteOk">Yes</button>
-                    </div>
-                    </div>
-                </div>
-                </div> -->
         </div>
+    </Layout>
 </template>
 <script>
+import Layout from '../Shared/Layout.vue'
 export default {
     name: "AboutMe",
     components: {
+        Layout,
     },
     data() {
         return {

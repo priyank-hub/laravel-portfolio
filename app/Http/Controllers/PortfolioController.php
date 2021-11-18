@@ -9,6 +9,22 @@ class PortfolioController extends Controller
 {
     //
     public function index() {
-        return Inertia::render('Home');
+        return Inertia::render('Introduction');
+    }
+
+    public function about() {
+        return Inertia::render('AboutMe');
+    }
+
+    public function skills() {
+        return Inertia::render('Skills');
+    }
+
+    public function works() {
+        return Inertia::render('Works');
+    }
+
+    public function contact() {
+        return Inertia::render('Contact');
     }
 }

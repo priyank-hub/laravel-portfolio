@@ -62,7 +62,6 @@
             </div>
 
             <slot />
-            <flash />
         </div>
     </div>
 </template>
@@ -150,33 +149,4 @@ export default {
     ul li {
         margin-top: 20px;
     }
-
-
-    .success {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 15px 25px;
-  min-width: 300px;
-  overflow: hidden;
-  font-size: 14px;
-  color: #3c763d;
-  background: #dff0d8;
-  border-radius: 5px;
-  border-left: 6px solid #3c763d;
-}
-
-.error {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 15px 20px;
-  min-width: 300px;
-  overflow: hidden;
-  font-size: 14px;
-  color: #a94442;
-  background: #f2dede;
-  border-radius: 5px;
-  border-left: 6px solid #a94442;
-}
 </style>
