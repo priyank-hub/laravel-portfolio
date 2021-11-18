@@ -26,7 +26,7 @@
                         </div>
 
                         <b-form-group label="Subject" class="col-12 col-md-12 mt-4">
-                            <b-form-input class="" v-model="form.subject" placeholder="Subject (Optional)" style="border: 1px solid #e6e6e6" required>
+                            <b-form-input class="" v-model="form.subject" placeholder="Subject (Optional)" style="border: 1px solid #e6e6e6">
                             </b-form-input>
                         </b-form-group>
 
@@ -36,7 +36,7 @@
                         </b-form-group>
 
                         <div class="mt-5" style="text-align: center">
-                            <b-button class="send border-0 text-white">
+                            <b-button type="submit" class="send border-0 text-white">
                                 <span class="" style="font-size: 14px; letter-spacing: 2px">
                                     SEND
                                 </span>
@@ -69,7 +69,9 @@ export default {
 
     },
     methods: {
-
+        submit() {
+            this.form.post(this.route('admin.feedback.store'));
+        }
     },
 
 }

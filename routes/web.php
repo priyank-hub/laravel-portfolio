@@ -5,6 +5,7 @@ use Inertia\Inertia;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\Auth\LoginController;
@@ -29,8 +30,14 @@ Route::get('/analytics', [DashboardController::class, 'index'])
     ->name('admin.analytics')
     ->middleware('auth');
 
-Route::get('/feedback', [DashboardController::class, 'feedback'])
+
+// feedback
+Route::get('/feedback', [FeedbackController::class, 'index'])
 ->name('admin.feedback')
+->middleware('auth');
+
+Route::post('/feedback', [FeedbackController::class, 'store'])
+->name('admin.feedback.store')
 ->middleware('auth');
 
 // projects
