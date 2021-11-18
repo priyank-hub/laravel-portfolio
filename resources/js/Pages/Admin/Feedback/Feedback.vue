@@ -23,7 +23,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="(feedback, key) in feedbacks" :key="key">
+                                    <tr v-for="(feedback, key) in feedbacks" :key="key" style="font-size: 13px">
                                         <td>{{ feedback.name }}</td>
                                         <td>
                                             {{ feedback.email }}

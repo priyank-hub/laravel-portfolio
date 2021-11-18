@@ -9,7 +9,7 @@
                     </h4>
                 </div>
 
-                <div class="container">
+                <div class="container-fluid">
                     <div class="row">
                         <div class="col-12">
                             <div class="">
@@ -26,10 +26,10 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr v-for="(project, key) in projects" :key="key">
+                                        <tr v-for="(project, key) in projects" :key="key" style="font-size: 13px">
                                             <td>{{ project.name }}</td>
                                             <td>
-                                                {{ project.description }}
+                                                {{ project.description.split('.') }}
                                             </td>
                                             <td>
                                                 
