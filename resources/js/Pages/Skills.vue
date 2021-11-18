@@ -2,11 +2,11 @@
     <div class="container cont" style="min-height: 100vh">
         <div class="border-bottom col-12 head" style="">
             <span style="letter-spacing: 2px">
-                    <span style="font-size: 30px; color: #942fe9;">
-                        <i class="fas fa-code mx-1" style="transform: rotate(90deg)"></i>
-                    </span>
-                    <span style="font-size: 16px">KILLS</span>
+                <span style="font-size: 30px; color: #942fe9;">
+                    <i class="fas fa-code mx-1" style="transform: rotate(90deg)"></i>
                 </span>
+                <span style="font-size: 16px">KILLS</span>
+            </span>
         </div>
         
         <div class="col-12">

@@ -8,6 +8,44 @@
                 <span style="font-size: 16px">ONTACT</span>
             </span>
         </div>
+
+        <div class="col-12">
+            <b-card title="" sub-title="" class="border-0 p-4 cards" style="border-radius: 30px">
+                <div class="container">
+                    <b-form @submit.prevent="submit" class="" style="text-align: left">
+                        <div class="row justify-content-between">
+                            <b-form-group label="Name" class="col-12 col-md-5 mt-4">
+                                <b-form-input id="name" class="" v-model="form.name" placeholder="Your Name" style="border: 1px solid #e6e6e6" required>
+                                </b-form-input>
+                            </b-form-group>
+
+                            <b-form-group label="Email" class="col-12 col-md-5 mt-4">
+                                <b-form-input class="" v-model="form.email" placeholder="Your Email" style="border: 1px solid #e6e6e6" required>
+                                </b-form-input>
+                            </b-form-group>
+                        </div>
+
+                        <b-form-group label="Subject" class="col-12 col-md-12 mt-4">
+                            <b-form-input class="" v-model="form.subject" placeholder="Subject (Optional)" style="border: 1px solid #e6e6e6" required>
+                            </b-form-input>
+                        </b-form-group>
+
+                        <b-form-group label="Message" class="col-12 mt-4">
+                            <b-form-textarea rows="4" class="" v-model="form.message" placeholder="Your Message" style="border: 1px solid #e6e6e6" required>
+                            </b-form-textarea>
+                        </b-form-group>
+
+                        <div class="mt-5" style="text-align: center">
+                            <b-button class="send border-0 text-white">
+                                <span class="" style="font-size: 14px; letter-spacing: 2px">
+                                    SEND
+                                </span>
+                            </b-button>
+                        </div>
+                    </b-form>
+                </div>
+            </b-card>
+        </div>
     </div>
 </template>
 
@@ -16,6 +54,16 @@ export default {
     name: 'Contact',
     props: {
 
+    },
+    data() {
+        return {
+            form: this.$inertia.form({
+                name: null,
+                email: null,
+                subject: null,
+                message: null,
+            })
+        }
     },
     components: {
 
@@ -48,5 +96,20 @@ export default {
         .head {
             margin-bottom: 50px;
         }
+
+        .send{
+            box-shadow: 0px 14px 28px rgb(0 0 0 / 10%);
+        }
+    }
+
+    .send:hover {
+        box-shadow: 0 14px 28px rgb(0 0 0 / 20%);
+        color: #fff !important;
+    }
+
+    .send {
+        background-color: #8444df; 
+        border-radius: 30px; 
+        padding: 13px 35px;
     }
 </style>

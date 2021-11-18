@@ -60,11 +60,10 @@ class ProjectController extends Controller
         
         // dd($request->file('image'));
         if ($request->hasFile('image')) {
-            $path = Storage::putFile('thumbnail', $request->file('image'));
+            $path = Storage::putFile('public', $request->file('image'));
             $url = Storage::url($request->file('image'));
             // $path = $request->file('image')->store('thumbnail');
         }
-        // dd($url);
         Project::create([
             'user_id' => Auth::user()->id,
             'name' => $request->name,
@@ -72,7 +71,7 @@ class ProjectController extends Controller
             'repo_path' => $request->repo_path,
             'live_path' => $request->live_path,
             'note' => $request->note,
-            'image_path' => $url,
+            'image_path' => $path,
         ]);
     }
 
