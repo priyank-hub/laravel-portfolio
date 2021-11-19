@@ -98,31 +98,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- <b-modal title="Project View" v-model="showModal" centered scrollable>
-                <template #modal-header="{ close }">
-                    <h5 class="m-0">Project View</h5>
-                    <button
-                        type="button"
-                        class="close"
-                        data-dismiss="modal"
-                        aria-label="Close"
-                        @click="close()"
-                    >
-                        <i class="fas fa-lg fa-times" />
-                    </button>
-                </template>
-                <div class="">
-                    <b-form @submit.prevent="submit" class="d-flex flex-column justify-content-center">
-                        <div class="col-12">
-                            <b-form-group label="Project Name" class="col-12 mt-4">
-                                <b-form-input class="" v-model="form.name" placeholder="Enter project name" required>
-                                </b-form-input>
-                            </b-form-group>
-                        </div>
-                    </b-form>
-                </div>
-            </b-modal> -->
         </AdminLayout>
     </div>
 </template>
@@ -146,7 +121,7 @@ export default {
         user: Object,
         projects: Array,
     },
-    mounted() {
+    created() {
         this.projects.forEach(project => {
             let arr = project.description.split('.');
             this.descriptions[project.id] = arr;
