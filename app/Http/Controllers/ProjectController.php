@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\Technologies;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Redirect;
+
 
 class ProjectController extends Controller
 {
@@ -19,8 +22,8 @@ class ProjectController extends Controller
     {
         $projects = Project::get();
 
-        foreach($projects as $p) {
-
+        foreach($projects as $project) {
+            $project['technologies'] = Technologies::where('project_id', $project->id)->get()->toArray();
         }
         // dd($projects->toArray());
         return Inertia::render('Admin/Projects/Projects', [
@@ -58,13 +61,15 @@ class ProjectController extends Controller
             'technologies.*.name' => ['required', 'max:255'], 
         ]);
         
+        $path = null;
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $slug = 'project-thumbnail';
 
             $path = $image->storeAs('images' .'/'. $slug, $image->getClientOriginalName(), 'public');
         }
-        Project::create([
+
+        $project = Project::create([
             'user_id' => Auth::user()->id,
             'name' => $request->name,
             'description' => $request->description,
@@ -73,6 +78,15 @@ class ProjectController extends Controller
             'note' => $request->note,
             'image_path' => $path,
         ]);
+        
+        foreach($request->technologies as $tech) {
+            Technologies::create([
+                'project_id' => $project->id,
+                'name' => $tech['name'],
+            ]);
+        }
+
+        return Redirect::route('admin.projects');
     }
 
     /**

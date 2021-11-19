@@ -13,11 +13,18 @@
                     <div >
                         <b-form @submit.prevent="submit" class="d-flex flex-column justify-content-center">
                             
-                            <div class="d-flex flex-row justify-content-between">
-                                <b-form-group label="Project Name" class="col-12 col-md-5 mt-4">
-                                    <b-form-input class="" v-model="form.name" placeholder="Enter project name" required>
-                                    </b-form-input>
-                                </b-form-group>
+                            <div class="row justify-content-between">
+                                <div class="col-12 col-md-5 d-flex flex-column">
+                                    <b-form-group label="Project Name" class="col-12 mt-4">
+                                        <b-form-input class="" v-model="form.name" placeholder="Enter project name" required>
+                                        </b-form-input>
+                                    </b-form-group>
+
+                                    <b-form-group label="Repository Link" class="col-12 mt-4">
+                                        <b-form-input class="" v-model="form.repo_path" placeholder="Enter the repository link">
+                                        </b-form-input>
+                                    </b-form-group>
+                                </div>
 
                                 <b-form-group label="Description" class="col-12 col-md-5 mt-4">
                                     <b-form-textarea rows="4" class="" v-model="form.description" placeholder="Enter project description" required>
@@ -25,11 +32,8 @@
                                 </b-form-group>
                             </div>
 
-                            <div class="d-flex flex-row justify-content-between mt-2">
-                                <b-form-group label="Repository Link" class="col-12 col-md-5 mt-4">
-                                    <b-form-input class="" v-model="form.repo_path" placeholder="Enter the repository link">
-                                    </b-form-input>
-                                </b-form-group>
+                            <div class="row justify-content-between mt-2">
+                                
 
                                 <b-form-group label="Live Link" class="col-12 col-md-5 mt-4">
                                     <b-form-input class="" v-model="form.live_path" placeholder="Enter deployed link">
@@ -38,7 +42,7 @@
                             </div>
 
 
-                            <div class="d-flex flex-row justify-content-between mt-2">
+                            <div class="d-flex flex-column justify-content-between mt-2">
                                 <b-form-group label="Additional Note" class="col-12 col-md-5 mt-4">
                                     <b-form-input class="" v-model="form.note" placeholder="Note...">
                                     </b-form-input>
