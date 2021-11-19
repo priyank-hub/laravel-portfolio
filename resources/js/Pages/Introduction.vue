@@ -35,7 +35,7 @@
                                     </span>
                                 </b-button>
                             </div>
-                            <div class="col-12 col-md-6 mt-3">
+                            <div class="col-12 col-md-6 mt-4">
                                 <div class="row justify-content-center">
                                     <div class="col-3 col-md-2">
                                         <b-button variant="" class="social p-2 px-3 bg-white border-0 rounded" href="https://www.linkedin.com/in/priyank9/" target="_blank">

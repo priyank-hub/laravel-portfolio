@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Feedback;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth;
+
 
 class FeedbackController extends Controller
 {
@@ -18,7 +19,6 @@ class FeedbackController extends Controller
     public function index()
     {
         $feedbacks = Feedback::get();
-        // dd($feedbacks->toArray());
         return Inertia::render('Admin/Feedback/Feedback', [
             'user' => Auth::user(),
             'feedbacks' => $feedbacks->toArray(),
@@ -57,7 +57,15 @@ class FeedbackController extends Controller
             'message' => $request->message,
         ]);
 
-        return Redirect::route('home')->with('success', 'Message was sent successfully');
+        return Redirect::route('admin.feedback.greet');
+        // return response()->json([
+        //     'message' => 'Message Sent Successfully',
+        //     'status' => 200,
+        // ]);
+    }
+
+    public function greet() {
+        return Inertia::render('Thankyou');
     }
 
     /**

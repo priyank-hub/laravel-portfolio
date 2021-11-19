@@ -35,7 +35,7 @@
                                                 
                                             </td>
                                             <td>
-                                                <img :src="project.image_path" alt="" width="30%">
+                                                <img :src="`/storage/${project.image_path}`" alt="" width="30%">
                                             </td>
                                             <td>
                                                 {{ project.repo_path }}

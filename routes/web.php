@@ -38,8 +38,10 @@ Route::get('/feedback', [FeedbackController::class, 'index'])
 ->middleware('auth');
 
 Route::post('/feedback', [FeedbackController::class, 'store'])
-->name('admin.feedback.store')
-->middleware('auth');
+->name('admin.feedback.store');
+
+Route::get('/feedback/greet', [FeedbackController::class, 'greet'])
+->name('admin.feedback.greet');
 
 // projects
 Route::get('/projects', [ProjectController::class, 'index'])
@@ -59,6 +61,7 @@ Route::get('/profile', [DashboardController::class, 'profile'])
 ->name('admin.profile')
 ->middleware('auth');
 
+//portfolio routes
 Route::get('/', [PortfolioController::class, 'index'])->name('home');
 Route::get('/about', [PortfolioController::class, 'about'])->name('about');
 Route::get('/skills', [PortfolioController::class, 'skills'])->name('skills');

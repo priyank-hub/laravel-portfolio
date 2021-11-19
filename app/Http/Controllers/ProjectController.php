@@ -58,11 +58,11 @@ class ProjectController extends Controller
             'technologies.*.name' => ['required', 'max:255'], 
         ]);
         
-        // dd($request->file('image'));
         if ($request->hasFile('image')) {
-            $path = Storage::putFile('public', $request->file('image'));
-            $url = Storage::url($request->file('image'));
-            // $path = $request->file('image')->store('thumbnail');
+            $image = $request->file('image');
+            $slug = 'project-thumbnail';
+
+            $path = $image->storeAs('images' .'/'. $slug, $image->getClientOriginalName(), 'public');
         }
         Project::create([
             'user_id' => Auth::user()->id,

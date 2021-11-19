@@ -55,19 +55,19 @@
         <!-- main content -->
         <div class="slot">
             <slot />
-            <flash />
+            <!-- <flash /> -->
         </div>
     </div>
 </template>
 <script>
-import Flash from './Flash.vue'
+// import Flash from './Flash.vue'
 export default {
     name: 'Layout',
     props: {
 
     },
     components: {
-        Flash,
+        // Flash,
     },
     mounted() {
         console.log(this.$page.props);

@@ -75,12 +75,13 @@ export default {
     methods: {
         async submit() {
             // await axios.post(this.route('admin.feedback.store', this.form))
-            //     .then(response => (
-            //         console.log(response)
-            //         // this.resp = response.status
-            //     ));
+            //     .then(response => {
+            //         if (response.data.status == 200) {
+                        
+            //         }
+            //     });
             
-            // // console.log(this.resp);
+            // console.log(this.resp);
             // if (this.resp == 200) {
             //     window.location.href = '/'
             // }
