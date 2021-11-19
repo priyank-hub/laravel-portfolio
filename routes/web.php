@@ -10,6 +10,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\FeedbackAddController;
 
 /*
 |--------------------------------------------------------------------------
@@ -86,4 +87,4 @@ Route::get('logout', [LoginController::class, 'logout'])->name('admin.logout');
 
 
 
-
+Route::get('/send-mail', [FeedbackAddController::class, 'sendTestFeedback'])->name('admin.send.mail');
