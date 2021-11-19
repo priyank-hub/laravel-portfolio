@@ -13,10 +13,11 @@
             <b-card title="" sub-title="" class="border-0 p-4 cards" style="border-radius: 30px">
                 <div class="d-flex flex-column">
 
-                    <div class="col-12 container my-4" v-for="work in works" :key="work">
+                    <div class="col-12 container my-4" v-for="work in projects" :key="work.id">
                         <div class="border row work p-2">
                             <div class="col-12 col-md-5 my-3">
-                                <img :src="work.img" alt="" width="100%" style="border-radius: 20px">
+                                <img v-if="work.image_path" :src="`/storage/${work.image_path}`" alt="" width="100%" style="border-radius: 20px">
+                                <img v-else src="assets/works/no-preview.png" alt="" width="100%" style="border-radius: 20px">
                             </div>
                             <div class="col-12 col-md-7 my-3" style="color: black; text-align: left">
                                 <div>
@@ -25,28 +26,33 @@
                                     </h5>
                                 </div>
                                 <div>
-                                    <span class="" style="font-size: 16px; letter-spacing: 1px">Tech Stack: </span>
-                                    <span class="" style="letter-spacing: 2px; color: #942fe9;">
-                                        {{ work.tech }}
+                                    <span class="" style="font-size: 16px; letter-spacing: 0px">Tech Stack </span>
+                                    <span class="" v-for="(tech, key) in work.technologies" :key="key" style="letter-spacing: 0px; color: #942fe9;">
+                                        <span v-if="key != work.technologies.length - 1">
+                                            {{ tech.name }},  
+                                        </span>
+                                        <span v-else>
+                                            {{ tech.name }}
+                                        </span>
                                     </span>
                                 </div>
                                 <div class="mt-2">
                                     <ul>
-                                        <li v-for="des in work.desc" :key="des" class="my-3">
+                                        <li v-for="(desc, key) in descriptions[work.id]" :key="key" v-if="key != descriptions[work.id].length - 1" class="my-3">
                                             <span style="font-size: 15px;">
-                                                {{ des }}
+                                                {{ desc }}
                                             </span>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="d-flex flex-row mt-3">
-                                    <div class="col-6 text-center">
-                                        <b-link :href="work.git" target="_blank" style="font-weight: 700; color: #942fe9 !important; text-decoration: underline !important">
+                                    <div v-if="work.repo_path" class="col-6 text-center">
+                                        <b-link :href="work.repo_path" target="_blank" style="font-weight: 700; color: #942fe9 !important; text-decoration: underline !important">
                                             Repository
                                         </b-link>
                                     </div>
-                                    <div v-if="work.live" class="col-6 text-center">
-                                        <b-link :href="work.live" target="_blank" style="font-weight: 700; color: #942fe9 !important; text-decoration: underline !important">
+                                    <div v-if="work.live_path" class="col-6 text-center">
+                                        <b-link :href="work.live_path" target="_blank" style="font-weight: 700; color: #942fe9 !important; text-decoration: underline !important">
                                             Preview
                                         </b-link>
                                     </div>
@@ -70,14 +76,24 @@ import Layout from '../Shared/Layout.vue'
 export default {
     name: 'Works',
     props: {
-
+        projects: Array,
     },
     layout: Layout,
     components: {
 
     },
+    created() {
+        console.log(this.projects);
+        this.projects.forEach(project => {
+            let arr = project.description.split('.');
+            this.descriptions[project.id] = arr;
+            this.index += 1;
+        });
+    },
     data() {
         return{
+            descriptions: [],
+            index: 0,
             works: [
                 {
                     name: 'Bluesphere Project',

@@ -45,6 +45,9 @@
                                                         <span v-if="desc.length > 10">
                                                             {{ desc.substring(0,10) }}...
                                                         </span>
+                                                        <span v-else>
+                                                            {{ desc }}
+                                                        </span>
                                                     </li>
                                                 </ul>
                                             </td>
@@ -56,11 +59,12 @@
                                                 </ul>
                                             </td>
                                             <td>
-                                                <img :src="`/storage/${project.image_path}`" alt="" width="100%">
+                                                <img v-if="project.image_path" :src="`/storage/${project.image_path}`" alt="" width="100%">
+                                                <img v-else src="assets/works/no-preview.png" alt="" style="max-height: 150px" width="100%">
                                             </td>
                                             <td>
                                                 <!-- {{ project.repo_path }} -->
-                                                <span v-if="project.repo_path.length > 20">
+                                                <span v-if="project.repo_path && project.repo_path.length > 20">
                                                     {{ project.repo_path.substring(0,20) }}...
                                                 </span>
                                                 <span v-else>
@@ -68,7 +72,7 @@
                                                 </span>
                                             </td>
                                             <td>
-                                                <div v-if="project.live_path">
+                                                <div v-if="project.live_path && project.live_path">
                                                     <span v-if="project.live_path.length > 20">
                                                         {{ project.live_path.substring(0,20) }}...
                                                     </span>
