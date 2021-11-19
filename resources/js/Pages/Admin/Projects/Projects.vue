@@ -32,10 +32,12 @@
                                             <th>Repository</th>
                                             <th>Preview</th>
                                             <th>Note</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr v-for="(project, key) in projects" :key="key" style="font-size: 13px">
+                                        <tr v-for="(project, key) in projects" :key="key" class="tr"
+                                        style="font-size: 13px">
                                             <td>{{ project.name }}</td>
                                             <td>
                                                 <ul class="p-0">
@@ -78,6 +80,16 @@
                                             <td>
                                                 {{ project.note }}
                                             </td>
+                                            <td>
+                                               <div class="d-flex flex-row">
+                                                   <b-button class="col p-1 mx-2 border-0" style="background: transparent" :href="route('admin.projects.edit', project.id)">
+                                                       <i class="fas fa-edit text-dark" />
+                                                   </b-button>
+                                                   <b-button class="col p-1 mx-2 border-0" style="background: transparent">
+                                                       <i class="fas fa-trash text-dark"/>
+                                                   </b-button>  
+                                                </div> 
+                                            </td>                                        
                                         </tr>
                                     </tbody>
                                 </table>
@@ -86,6 +98,31 @@
                     </div>
                 </div>
             </div>
+
+            <!-- <b-modal title="Project View" v-model="showModal" centered scrollable>
+                <template #modal-header="{ close }">
+                    <h5 class="m-0">Project View</h5>
+                    <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                        @click="close()"
+                    >
+                        <i class="fas fa-lg fa-times" />
+                    </button>
+                </template>
+                <div class="">
+                    <b-form @submit.prevent="submit" class="d-flex flex-column justify-content-center">
+                        <div class="col-12">
+                            <b-form-group label="Project Name" class="col-12 mt-4">
+                                <b-form-input class="" v-model="form.name" placeholder="Enter project name" required>
+                                </b-form-input>
+                            </b-form-group>
+                        </div>
+                    </b-form>
+                </div>
+            </b-modal> -->
         </AdminLayout>
     </div>
 </template>
@@ -101,6 +138,8 @@ export default {
         return {
             descriptions: [],
             index: 0,
+            showModal: false,
+            thisProject: null,
         }
     },
     props: {
@@ -128,6 +167,10 @@ export default {
     text-align: right;
 }
 
+.tr:hover {
+    background: #d2d2d2 !important;
+}
+
 @media (max-width: 992px) {
     .head {
         text-align: center;
@@ -140,5 +183,19 @@ export default {
 
 ul li {
     margin-top: 10px;
+}
+
+button.close {
+    background:transparent;
+    border: 0; 
+}
+
+.close:not(:disabled):not(.disabled):focus, .close:not(:disabled):not(.disabled):hover  {
+    opacity: 0.75;
+}
+
+.modal-header .close {
+    padding: 1rem;
+    margin: -1rem -1rem -1rem auto;
 }
 </style>

@@ -52,6 +52,14 @@ Route::get('/projects/create', [ProjectController::class, 'create'])
 ->name('admin.projects.create')
 ->middleware('auth');
 
+Route::get('/projects/edit/{id}', [ProjectController::class, 'edit'])
+->name('admin.projects.edit')
+->middleware('auth');
+
+Route::post('/projects/edit/{id}', [ProjectController::class, 'update'])
+->name('admin.projects.update')
+->middleware('auth');
+
 Route::post('projects', [ProjectController::class, 'store'])
     ->name('admin.projects.store')
     ->middleware('auth');
