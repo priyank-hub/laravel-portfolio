@@ -13,7 +13,7 @@
             <b-card title="" sub-title="" class="border-0 p-4 cards" style="border-radius: 30px">
                 <div class="d-flex flex-column">
 
-                    <div class="col-12 container my-4" v-for="work in projects" :key="work.id">
+                    <div class="d-none col-12 container my-4" v-for="work in projects" :key="work.id">
                         <div class="border row work p-2">
                             <div class="col-12 col-md-5 my-3">
                                 <img v-if="work.image_path" :src="`/storage/${work.image_path}`" alt="" width="100%" style="border-radius: 20px">
@@ -66,6 +66,96 @@
                         </div>
                     </div>
 
+                    <v-app class="">
+                        <v-container>
+                            <div class="row">
+                                <div class="col-12 col-md-6 col-lg-6" v-for="work in projects" :key="work.id">
+                                    <v-card
+                                        class=""
+                                        max-width="500"
+                                        elevation="11"
+                                    >
+                                        <v-img v-if="work.image_path"
+                                        :src="`/storage/${work.image_path}`"
+                                        height="200px"
+                                        ></v-img>
+
+                                        <v-img v-else
+                                        src="assets/works/no-preview.png"
+                                        height="200px"
+                                        ></v-img>
+
+                                        <v-card-title>
+                                            {{ work.name }}
+                                        </v-card-title>
+
+                                        <v-card-subtitle>
+                                        </v-card-subtitle>
+
+                                        <v-card-actions class="py-3">
+                                            <v-btn
+                                            text
+                                            color="indigo lighten-1"
+                                            class="text-white"
+                                            >
+                                                <v-icon left>
+                                                    mdi-code-tags
+                                                </v-icon>
+                                                Repo
+                                            </v-btn>
+
+                                            <v-btn
+                                            text
+                                            color="indigo lighten-1"
+                                            class="text-white mx-4"
+                                            >
+                                                <v-icon left>
+                                                    mdi-eye
+                                                </v-icon>
+                                                Preview
+                                            </v-btn>
+
+                                            <v-spacer></v-spacer>
+
+                                            <v-btn
+                                            class="mx-2"
+                                            fab
+                                            dark
+                                            small
+                                            
+                                            v-b-toggle="'work' + work.id"
+                                            color="indigo more"
+                                            >
+                                                <v-icon dark>
+                                                    mdi-plus
+                                                </v-icon>
+                                            </v-btn>
+                                        </v-card-actions>
+
+                                            <b-collapse :id="'work' + work.id">
+                                                <v-expand-transition>
+                                                    <div class="px-4 pb-4">
+                                                        <v-divider></v-divider>
+<!-- 
+                                                        <span v-for="(desc, key) in descriptions[work.id]" :key="key" v-if="key != descriptions[work.id].length - 1">
+                                                            {{ desc }}
+                                                        </span> -->
+                                                        <ul class="" style="text-align: left">
+                                                            <li v-for="(desc, key) in descriptions[work.id]" :key="key" v-if="key != descriptions[work.id].length - 1" class="my-3" style="list-style-type: none">
+                                                                <span style="font-size: 15px;">
+                                                                    {{ desc }}.
+                                                                </span>
+                                                            </li>
+                                                        </ul>
+                                                        
+                                                    </div>
+                                                </v-expand-transition>
+                                            </b-collapse>
+                                    </v-card>
+                                </div>
+                            </div>
+                        </v-container>
+                    </v-app>
                 </div>
             </b-card>
         </div>
@@ -73,6 +163,9 @@
 </template>
 <script>
 import Layout from '../Shared/Layout.vue'
+import '@mdi/font/css/materialdesignicons.css'
+import 'vuetify/dist/vuetify.min.css'
+
 export default {
     name: 'Works',
     props: {
@@ -94,51 +187,16 @@ export default {
         return{
             descriptions: [],
             index: 0,
-            works: [
-                {
-                    name: 'Bluesphere Project',
-                    img: 'assets/works/bluesphere.png',
-                    tech: 'Vue, PHP Laravel, MySql, Blade',
-                    desc: [
-                        'This project is comprises of two sides, admin and user. (Multi Auth System in Laravel Framework)',
-                        'Mainly focuses on the Lead Management System where admin can post leads for their users based on their package type.',
-                        'Supports Subscription, Authentication, Admin Analytics such as functions.'
-                    ],
-                    git: 'https://github.com/sagar1708/BlueSphere_Project',
-                    note: null,
-                },
-                {
-                    name: 'Bookstore Project',
-                    img: 'assets/works/bookstore.png',
-                    tech: 'React, REST API, Java Spring Framework',
-                    desc: [
-                        'This project consists of a backend built in Java Spring boot and UI is rendered using React framework.',
-                        'Built REST API for this project in Java and used IBM db2 for database.',
-                        'Supports Cart, Checkout and Payment functionalities.'
-                    ],
-                    git: 'https://github.com/priyank-hub/Charizard-4413-FrontEnd',
-                    live: 'https://charizard-4413-front-end.vercel.app/',
-                    note: 'All functionalities won\'t work now as the IBM db2 was just for trial version.',
-                },
-                {
-                    name: 'WeatherInfo',
-                    img: 'assets/works/weatherinfo.png',
-                    tech: 'HTML, CSS, Javascript, OpenWeatherMap API',
-                    desc: [
-                        'My first Independant project to test my skills in Javascript especially',
-                        'Weatherinfo is a web application designed to keep track of live weather forecast in any city around the world using the OpenWeatherMap API',
-                        'Uses basic HTML, Javascript and touch of CSS'
-                    ],
-                    git: 'https://github.com/priyank-hub/weatherinfo',
-                    live: 'https://priyank-hub.github.io/weatherinfo/event.html',
-                    note: 'It wont be a fully responsive website, works well in laptops',
-                },
 
-            ]
+            show: false,
         }
     },
     methods: {
+        reserve () {
+            this.loading = true
 
+            setTimeout(() => (this.loading = false), 2000)
+        },
     }
 }
 
@@ -174,5 +232,21 @@ export default {
         .cont {
             padding-top: 15px !important;
         }
+
+        #app {
+            background-color: transparent !important;
+        }
+
+        .card-body {
+            padding: 0px !important;
+        }
+
+        .more {
+            box-shadow: 0px 10px 10px rgb(0 0 0 / 10%) !important;
+        }
+    }
+
+    #app {
+        background-color: #fff;
     }
 </style>

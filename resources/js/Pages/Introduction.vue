@@ -67,6 +67,7 @@
                 </div>
             </div>
         </div>
+
     </Layout>
 </template>
 <script>
@@ -95,7 +96,7 @@ export default {
     methods: {
         to() {
             this.$emit('scrollTo', 'about');
-        }
+        },
     }
 }
 </script>

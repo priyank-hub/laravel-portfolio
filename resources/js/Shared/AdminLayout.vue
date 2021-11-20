@@ -7,7 +7,7 @@
         </div>
 
         <nav class="sidebar side" id="sidebar">
-            <div class="logo col-12 p-2">
+            <div class="logo p-2">
                 <h1 style="margin-top: 5px">PP</h1>
             </div>
 

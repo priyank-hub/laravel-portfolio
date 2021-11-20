@@ -34,8 +34,10 @@ import Vue from 'vue'
 import { createInertiaApp } from '@inertiajs/inertia-vue'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import Route from '../../vendor/tightenco/ziggy/src/js/route.js'
-
 import { SidebarPlugin } from 'bootstrap-vue'
+
+import vuetify from './vuetify';
+
 Vue.use(SidebarPlugin)
 
 // Make BootstrapVue available throughout your project
@@ -50,6 +52,7 @@ createInertiaApp({
   setup({ el, App, props }) {
     new Vue({
       render: h => h(App, props),
+      vuetify,
     }).$mount(el)
   },
 })
