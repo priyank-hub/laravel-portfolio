@@ -61,6 +61,10 @@ Route::post('/projects/edit/{id}', [ProjectController::class, 'update'])
 ->name('admin.projects.update')
 ->middleware('auth');
 
+Route::post('/projects/destroy/{id}', [ProjectController::class, 'destroy'])
+->name('admin.projects.destroy')
+->middleware('auth');
+
 Route::post('projects', [ProjectController::class, 'store'])
     ->name('admin.projects.store')
     ->middleware('auth');

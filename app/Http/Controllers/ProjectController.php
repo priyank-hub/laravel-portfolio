@@ -129,8 +129,12 @@ class ProjectController extends Controller
         return Redirect::route('admin.projects');
     }
 
-    public function destroy(Project $project)
+    public function destroy(Request $request)
     {
-        //
+       $project = Project::findOrFail($request->id);
+
+       $project->delete();
+
+       return Redirect::route('admin.projects');
     }
 }

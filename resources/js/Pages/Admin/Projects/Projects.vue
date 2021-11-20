@@ -89,7 +89,7 @@
                                                    <b-button class="col p-1 mx-2 border-0" style="background: transparent" :href="route('admin.projects.edit', project.id)">
                                                        <i class="fas fa-edit text-dark" />
                                                    </b-button>
-                                                   <b-button class="col p-1 mx-2 border-0" style="background: transparent">
+                                                   <b-button class="col p-1 mx-2 border-0" style="background: transparent" @click="destroy(project.id)">
                                                        <i class="fas fa-trash text-dark"/>
                                                    </b-button>  
                                                 </div> 
@@ -133,7 +133,9 @@ export default {
         });
     },
     methods: {
-
+        destroy(id) {
+            this.$inertia.post(this.route('admin.projects.destroy', id));
+        }
     }
 }
 </script>

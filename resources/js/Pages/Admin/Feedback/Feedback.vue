@@ -11,8 +11,8 @@
 
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-12" style="overflow: auto">
-                            <table class="table table-striped table-bordered bg-white">
+                        <div class="col-12" style="height: 70vh; overflow: auto">
+                            <table class="table table-striped table-bordered bg-white" style="">
                                 <thead>
                                     <tr>
                                         <th>Name</th>
@@ -23,7 +23,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="(feedback, key) in feedbacks" :key="key" style="font-size: 13px">
+                                    <tr v-for="(feedback, key) in feedbacks" :key="key" style="font-size: 13px;">
                                         <td>{{ feedback.name }}</td>
                                         <td>
                                             {{ feedback.email }}
