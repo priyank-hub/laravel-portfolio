@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "093c4441ce94de8d02fd8814d429d076",
+    "content-hash": "2c942d50f62f7014d967da98c986e8cb",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3393,6 +3393,58 @@
                 }
             ],
             "time": "2021-09-25T23:10:38+00:00"
+        },
+        {
+            "name": "rezaamini-ir/laravel-tracker",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rezaamini-ir/laravel-tracker.git",
+                "reference": "acdb617013be1961c0df21848ae37c2a19339a4a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rezaamini-ir/laravel-tracker/zipball/acdb617013be1961c0df21848ae37c2a19339a4a",
+                "reference": "acdb617013be1961c0df21848ae37c2a19339a4a",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.2",
+                "laravel/framework": "^6.0|^7.0|^8.0",
+                "php": ">=7.2.5"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.7|^4.0|^5.0|^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Tracker\\TrackerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Tracker\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Reza Amini",
+                    "email": "rezaaminiroyal@gmail.com"
+                }
+            ],
+            "description": "Track your data in project",
+            "support": {
+                "issues": "https://github.com/rezaamini-ir/laravel-tracker/issues",
+                "source": "https://github.com/rezaamini-ir/laravel-tracker/tree/1.0.0"
+            },
+            "time": "2021-01-03T19:26:37+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -8566,5 +8618,5 @@
         "php": "^7.3|^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }
