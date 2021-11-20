@@ -71,7 +71,7 @@
                             <div class="row">
                                 <div class="col-12 col-md-6 col-lg-6" v-for="work in projects" :key="work.id">
                                     <v-card
-                                        class=""
+                                        class="works d-none"
                                         max-width="500"
                                         elevation="11"
                                     >
@@ -90,6 +90,7 @@
                                         </v-card-title>
 
                                         <v-card-subtitle>
+                                            
                                         </v-card-subtitle>
 
                                         <v-card-actions class="py-3">
@@ -97,6 +98,9 @@
                                             text
                                             color="indigo lighten-1"
                                             class="text-white"
+                                            v-if="work.repo_path"
+                                            :href="work.repo_path"
+                                            target="_blank"
                                             >
                                                 <v-icon left>
                                                     mdi-code-tags
@@ -108,6 +112,9 @@
                                             text
                                             color="indigo lighten-1"
                                             class="text-white mx-4"
+                                            v-if="work.live_path"
+                                            :href="work.live_path"
+                                            target="_blank"
                                             >
                                                 <v-icon left>
                                                     mdi-eye
@@ -132,25 +139,26 @@
                                             </v-btn>
                                         </v-card-actions>
 
-                                            <b-collapse :id="'work' + work.id">
-                                                <v-expand-transition>
-                                                    <div class="px-4 pb-4">
-                                                        <v-divider></v-divider>
-<!-- 
-                                                        <span v-for="(desc, key) in descriptions[work.id]" :key="key" v-if="key != descriptions[work.id].length - 1">
-                                                            {{ desc }}
-                                                        </span> -->
-                                                        <ul class="" style="text-align: left">
-                                                            <li v-for="(desc, key) in descriptions[work.id]" :key="key" v-if="key != descriptions[work.id].length - 1" class="my-3" style="list-style-type: none">
-                                                                <span style="font-size: 15px;">
-                                                                    {{ desc }}.
-                                                                </span>
-                                                            </li>
-                                                        </ul>
-                                                        
+                                        <b-collapse :id="'work' + work.id">
+                                            <v-expand-transition>
+                                                <div class="px-4 pb-4">
+                                                    <v-divider></v-divider>
+                                                    <ul class="" style="text-align: left">
+                                                        <li v-for="(desc, key) in descriptions[work.id]" :key="key" v-if="key != descriptions[work.id].length - 1" class="my-3" style="list-style-type: none">
+                                                            <span style="font-size: 15px;">
+                                                                {{ desc }}.
+                                                            </span>
+                                                        </li>
+                                                    </ul>
+                                                    
+                                                    <div v-if="work.note" class="my-3" style="text-align: left">
+                                                        <span style="font-size: 12px">  
+                                                            *{{ work.note }}
+                                                        </span>
                                                     </div>
-                                                </v-expand-transition>
-                                            </b-collapse>
+                                                </div>
+                                            </v-expand-transition>
+                                        </b-collapse>
                                     </v-card>
                                 </div>
                             </div>
@@ -175,12 +183,22 @@ export default {
     components: {
 
     },
-    created() {
+    mounted() {
         console.log(this.projects);
         this.projects.forEach(project => {
             let arr = project.description.split('.');
             this.descriptions[project.id] = arr;
             this.index += 1;
+        });
+
+        let skills = document.querySelectorAll('.works')
+        let i = 0;
+        skills.forEach(skill => {
+            setTimeout(function() {
+                skill.classList.remove('d-none');
+                skill.classList.add("zoomIn");
+            },300 * i);
+            i++;
         });
     },
     data() {
@@ -248,5 +266,22 @@ export default {
 
     #app {
         background-color: #fff;
+    }
+
+    @keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+
+    50% {
+        opacity: 1;
+    }
+    }
+
+    .zoomIn {
+        animation-name: zoomIn;
+        animation-duration: 1s;
+        animation-iteration-count: 1;
     }
 </style>

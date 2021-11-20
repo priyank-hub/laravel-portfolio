@@ -13,7 +13,7 @@
             <b-card title="" sub-title="" class="border-0 p-4 cards" style="border-radius: 30px">
                 <div class="container">
                     <div class="skill-grid">
-                        <div class="border d-flex flex-column skill p-2 zoomIn" v-for="skill in skills" :key="skill.url">
+                        <div class="border d-flex flex-column skill p-2 d-none" v-for="skill in skills" :key="skill.url">
                             <b-link :href="skill.website" class="row" target="_blank">
                                 <span class="col-12">
                                     <img :src="skill.url" alt="" style="height: 35px">
@@ -52,14 +52,19 @@ export default {
                     website: 'https://www.w3schools.com/css/'
                 },
                 {
-                    url: '/assets/skills/sass.svg',
-                    name: 'Sass',
-                    website: 'https://sass-lang.com/'
-                },
-                {
                     url: '/assets/skills/js.png',
                     name: 'Javascript',
                     website: 'https://www.w3schools.com/js/DEFAULT.asp'
+                },
+                {
+                    url: '/assets/skills/laravel.svg',
+                    name: 'Laravel',
+                    website: 'https://laravel.com/'
+                },
+                {
+                    url: '/assets/skills/sass.svg',
+                    name: 'Sass',
+                    website: 'https://sass-lang.com/'
                 },
                 {
                     url: '/assets/skills/vue.svg',
@@ -75,11 +80,6 @@ export default {
                     url: '/assets/skills/flutter.svg',
                     name: 'Flutter',
                     website: 'https://flutter.dev/'
-                },
-                {
-                    url: '/assets/skills/laravel.svg',
-                    name: 'Laravel',
-                    website: 'https://laravel.com/'
                 },
                 {
                     url: '/assets/skills/java.svg',
@@ -116,6 +116,15 @@ export default {
     },
     mounted() {
         console.log('mounted');
+        let skills = document.querySelectorAll('.skill')
+        let i = 0;
+        skills.forEach(skill => {
+            setTimeout(function() {
+                skill.classList.remove('d-none');
+                skill.classList.add("zoomIn");
+            },300 * i);
+            i++;
+        });
     },
     methods: {
 
@@ -143,6 +152,7 @@ export default {
     cursor: pointer;
     transition: 0.3s;
     background-color: #fff;
+    /* transition:  2s ease-in; */
 }
 
 .skill:hover {

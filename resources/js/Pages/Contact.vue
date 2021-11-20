@@ -117,6 +117,10 @@ export default {
         .send{
             box-shadow: 0px 14px 28px rgb(0 0 0 / 10%);
         }
+
+        .cards {
+            padding: 0px !important;
+        }
     }
 
     .send:hover {
