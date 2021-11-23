@@ -13,59 +13,6 @@
             <b-card title="" sub-title="" class="border-0 p-4 cards" style="border-radius: 30px">
                 <div class="d-flex flex-column">
 
-                    <div class="d-none col-12 container my-4" v-for="work in projects" :key="work.id">
-                        <div class="border row work p-2">
-                            <div class="col-12 col-md-5 my-3">
-                                <img v-if="work.image_path" :src="`/storage/${work.image_path}`" alt="" width="100%" style="border-radius: 20px">
-                                <img v-else src="assets/works/no-preview.png" alt="" width="100%" style="border-radius: 20px">
-                            </div>
-                            <div class="col-12 col-md-7 my-3" style="color: black; text-align: left">
-                                <div>
-                                    <h5 class="border-bottom" style="letter-spacing: 1px">
-                                        {{ work.name.toUpperCase() }}
-                                    </h5>
-                                </div>
-                                <div>
-                                    <span class="" style="font-size: 16px; letter-spacing: 0px">Tech Stack </span>
-                                    <span class="" v-for="(tech, key) in work.technologies" :key="key" style="letter-spacing: 0px; color: #942fe9;">
-                                        <span v-if="key != work.technologies.length - 1">
-                                            {{ tech.name }},  
-                                        </span>
-                                        <span v-else>
-                                            {{ tech.name }}
-                                        </span>
-                                    </span>
-                                </div>
-                                <div class="mt-2">
-                                    <ul>
-                                        <li v-for="(desc, key) in descriptions[work.id]" :key="key" v-if="key != descriptions[work.id].length - 1" class="my-3">
-                                            <span style="font-size: 15px;">
-                                                {{ desc }}
-                                            </span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="d-flex flex-row mt-3">
-                                    <div v-if="work.repo_path" class="col-6 text-center">
-                                        <b-link :href="work.repo_path" target="_blank" style="font-weight: 700; color: #942fe9 !important; text-decoration: underline !important">
-                                            Repository
-                                        </b-link>
-                                    </div>
-                                    <div v-if="work.live_path" class="col-6 text-center">
-                                        <b-link :href="work.live_path" target="_blank" style="font-weight: 700; color: #942fe9 !important; text-decoration: underline !important">
-                                            Preview
-                                        </b-link>
-                                    </div>
-                                </div>
-                            </div>
-                            <div v-if="work.note" class="note" style="text-align: left">
-                                <span style="font-size: 12px">
-                                    *{{ work.note }}
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
                     <v-app class="">
                         <v-container>
                             <div class="row">
@@ -141,15 +88,17 @@
 
                                         <b-collapse :id="'work' + work.id">
                                             <v-expand-transition>
-                                                <div class="px-4 pb-4">
+                                                <div class="px-4 pb-4" style="text-align: left">
                                                     <v-divider></v-divider>
                                                     <ul class="" style="text-align: left">
-                                                        <li v-for="(desc, key) in descriptions[work.id]" :key="key" v-if="key != descriptions[work.id].length - 1" class="my-3" style="list-style-type: none">
+                                                        <li v-for="(desc, key) in work.description.split('.')" v-if="key != work.description.split('.').length - 1" :key="key" class="my-3" style="list-style-type: none">
                                                             <span style="font-size: 15px;">
                                                                 {{ desc }}.
                                                             </span>
                                                         </li>
                                                     </ul>
+
+                                                    <!-- {{ work.description.split('.') }} -->
                                                     
                                                     <div v-if="work.note" class="my-3" style="text-align: left">
                                                         <span style="font-size: 12px">  
@@ -183,13 +132,22 @@ export default {
     components: {
 
     },
+    data() {
+        return{
+            descriptions: [],
+            index: 0,
+
+            show: false,
+        }
+    },
     mounted() {
-        console.log(this.projects);
         this.projects.forEach(project => {
             let arr = project.description.split('.');
             this.descriptions[project.id] = arr;
             this.index += 1;
         });
+        
+        console.log('projects', this.descriptions);
 
         let skills = document.querySelectorAll('.works')
         let i = 0;
@@ -200,14 +158,6 @@ export default {
             },300 * i);
             i++;
         });
-    },
-    data() {
-        return{
-            descriptions: [],
-            index: 0,
-
-            show: false,
-        }
     },
     methods: {
         reserve () {
@@ -239,6 +189,14 @@ export default {
         box-shadow: 0px 10px 10px rgb(0 0 0 / 10%);
         transition: 0.3s;
         background-color: #fff;
+    }
+
+    .works {
+        transition: 0.3s;
+    }
+
+    .works:hover {
+        /* transform: translateY(-10%); */
     }
 
     @media (max-width: 767px) {

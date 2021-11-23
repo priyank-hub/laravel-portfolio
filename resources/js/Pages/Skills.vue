@@ -122,7 +122,7 @@ export default {
             setTimeout(function() {
                 skill.classList.remove('d-none');
                 skill.classList.add("zoomIn");
-            },300 * i);
+            },100 * i);
             i++;
         });
     },
