@@ -12,15 +12,22 @@
         <div class="col-12">
             <b-card title="" sub-title="" class="border-0 p-4 cards" style="border-radius: 30px">
                 <div class="d-flex flex-column">
-
+                    <div style="text-align: left">
+                        <span style="font-size: 22px">
+                            Projects
+                        </span>
+                        <span class="text-muted" style="font-size: 12px">
+                            I've worked on
+                        </span>
+                    </div>
                     <v-app class="">
                         <v-container>
-                            <div class="row">
-                                <div class="col-12 col-md-6 col-lg-6" v-for="work in projects" :key="work.id">
+                            <div class="row justify-content-around">
+                                <div class="col-12 col-md-5 col-lg-5" v-for="work in projects" :key="work.id">
                                     <v-card
                                         class="works d-none"
                                         max-width="500"
-                                        elevation="11"
+                                        elevation="4"
                                     >
                                         <v-img v-if="work.image_path"
                                         :src="`/storage/${work.image_path}`"
@@ -116,6 +123,121 @@
                 </div>
             </b-card>
         </div>
+
+        <div class="col-12">
+            <b-card title="" sub-title="" class="border-0 p-4 cards" style="border-radius: 30px">
+                <div class="d-flex flex-column">
+                    <div style="text-align: left; position: sticky; top: 0px">
+                        <span style="font-size: 22px">
+                            UI Components
+                        </span>
+                        <span class="text-muted" style="font-size: 12px">
+                            You can take a look at.
+                        </span>
+                    </div>
+                    <v-app class="">
+                        <v-container>
+                            <div class="row justify-content-around work-cards" style="">
+                                <div class="col-12 col-md-5 col-lg-5 mt-3" v-for="work in uicomponents" :key="work.id">
+                                    <v-card
+                                        class="works d-none"
+                                        max-width="500"
+                                        elevation="4"
+                                    >
+                                        <v-img v-if="work.image_path"
+                                        :src="work.image_path"
+                                        height="200px"
+                                        ></v-img>
+
+                                        <v-img v-else
+                                        src=""
+                                        height="200"
+                                        ></v-img>
+
+                                        <v-card-title>
+                                            {{ work.name }}
+                                        </v-card-title>
+
+                                        <v-card-subtitle>
+                                            
+                                        </v-card-subtitle>
+
+                                        <v-card-actions class="py-3">
+                                            <v-btn
+                                            text
+                                            color="indigo lighten-1"
+                                            class="text-white"
+                                            v-if="work.repo_path"
+                                            :href="work.repo_path"
+                                            target="_blank"
+                                            >
+                                                <v-icon left>
+                                                    mdi-code-tags
+                                                </v-icon>
+                                                Repo
+                                            </v-btn>
+
+                                            <v-btn
+                                            text
+                                            color="indigo lighten-1"
+                                            class="text-white mx-4"
+                                            v-if="work.live_path"
+                                            :href="work.live_path"
+                                            target="_blank"
+                                            >
+                                                <v-icon left>
+                                                    mdi-eye
+                                                </v-icon>
+                                                Preview
+                                            </v-btn>
+
+                                            <v-spacer></v-spacer>
+
+                                            <v-btn
+                                            class="mx-2"
+                                            fab
+                                            dark
+                                            small
+                                            
+                                            v-b-toggle="'ui' + work.id"
+                                            color="indigo more"
+                                            >
+                                                <v-icon dark>
+                                                    mdi-plus
+                                                </v-icon>
+                                            </v-btn>
+                                        </v-card-actions>
+
+                                        <b-collapse :id="'ui' + work.id">
+                                            <v-expand-transition>
+                                                <div class="px-4 pb-4" style="text-align: left">
+                                                    <v-divider></v-divider>
+                                                    <ul class="" style="text-align: left">
+                                                        <li v-for="(desc, key) in work.description" :key="key" class="my-3" style="list-style-type: none">
+                                                            <span style="font-size: 15px;">
+                                                                {{ desc }}
+                                                            </span>
+                                                        </li>
+                                                    </ul>
+
+                                                    <!-- {{ work.description.split('.') }} -->
+                                                    
+                                                    <div v-if="work.note" class="my-3" style="text-align: left">
+                                                        <span style="font-size: 12px">  
+                                                            *{{ work.note }}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </v-expand-transition>
+                                        </b-collapse>
+                                    </v-card>
+                                </div>
+                            </div>
+                        </v-container>
+                    </v-app>
+                </div>
+            </b-card>
+        </div>
     </div>
 </template>
 <script>
@@ -136,7 +258,52 @@ export default {
         return{
             descriptions: [],
             index: 0,
+            uicomponents: [
+                {
+                    id: 1,
+                    image_path: '/assets/works/nft.png',
+                    name: 'NFT Preview Card',
+                    repo_path: 'https://github.com/priyank-hub/NFT_Preview_Card',
+                    live_path: 'https://lucid-gates-2f9285.netlify.app/',
+                    description: [
 
+                    ],
+                    note: '',
+                },
+                {                    
+                    id: 2,
+                    image_path: '/assets/works/gitfinder.png',
+                    name: 'GitFinder',
+                    repo_path: 'https://github.com/priyank-hub/github_users_search',
+                    live_path: 'https://githubbfinderr.netlify.app/',
+                    description: [
+
+                    ],
+                    note: '',
+                },
+                {
+                    id: 3,
+                    image_path: '/assets/works/products.png',
+                    name: 'Product Page',
+                    repo_path: 'https://github.com/priyank-hub/e-commerce-product-page',
+                    live_path: 'https://priceless-feynman-3c8537.netlify.app/',
+                    description: [
+
+                    ],
+                    note: '',
+                },
+                {
+                    id: 4,
+                    image_path: '/assets/works/countries.png',
+                    name: 'REST API Countries',
+                    repo_path: 'https://github.com/priyank-hub/REST_countries_API',
+                    live_path: 'https://gifted-lewin-d7829b.netlify.app/#/',
+                    description: [
+
+                    ],
+                    note: '',
+                }
+            ],
             show: false,
         }
     },
@@ -193,10 +360,7 @@ export default {
 
     .works {
         transition: 0.3s;
-    }
-
-    .works:hover {
-        /* transform: translateY(-10%); */
+        border-radius: 20px;
     }
 
     @media (max-width: 767px) {
@@ -219,6 +383,11 @@ export default {
 
         .more {
             box-shadow: 0px 10px 10px rgb(0 0 0 / 10%) !important;
+        }
+
+        .work-cards{
+            display: flex;
+            flex-direction: row !important;
         }
     }
 
