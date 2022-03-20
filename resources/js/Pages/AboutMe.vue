@@ -124,6 +124,17 @@
                         </b-card-text>
                     </b-card>
                 </div>
+
+            </div>
+            <div style="position: fixed; bottom: 20px; right: 30px">
+                <div class="mt-5" style="margin-left: auto; text-align: right">
+                    <a class="border-0 p-3" :href="this.route('skills')"
+                                style="background-color: #8444df; border-radius: 50%">
+                        <span class="">
+                            <img src="/assets/right-chevron.png" style="height: 17px" class="" alt="">
+                        </span>
+                    </a>
+                </div>
             </div>
 
             <b-modal id="hire-modal" hide-footer centered fade>
@@ -160,7 +171,7 @@ export default {
 <style scoped>
 .section-cont {
     padding-top: 47px;
-    margin-bottom: 100px;
+    padding-bottom: 100px;
     position: relative;
     min-height: 100vh;
 }

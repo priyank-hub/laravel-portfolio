@@ -1,6 +1,6 @@
 <template>
     <Layout>
-        <div class="container cont" style="height: 100vh">
+        <div class="container cont" style="min-height: 100vh">
             <div class="d-flex flex-column" style="margin-top: 30px;">
                 <div class="col-12 text-center">
                     <span class="text"> I'M A </span>
@@ -61,6 +61,28 @@
                                         </b-button>
                                     </div>                                
                                 </div>
+                            </div>
+                            <!-- <div class="col-12 mt-5" style="margin-left: auto; text-align: right">
+                                <a class="border-0" :href="this.route('about')"
+                                            style="background-color: transparent">
+                                    <span style="font-size: 13px; letter-spacing: 2px; border-bottom: 2px solid #8444df" class="text-dark p-1">
+                                        About Me
+                                    </span>
+                                    <span class="mx-1">
+                                        <img src="/assets/right-chevron.png" style="height: 12px" alt="">
+                                    </span>
+                                </a>
+                            </div> -->
+                        </div>
+
+                        <div style="position: fixed; bottom: 20px; right: 30px">
+                            <div class="mt-5" style="margin-left: auto; text-align: right">
+                                <a class="border-0 p-3" :href="this.route('about')"
+                                            style="background-color: #8444df; border-radius: 50%">
+                                    <span class="">
+                                        <img src="/assets/right-chevron.png" style="height: 17px" class="" alt="">
+                                    </span>
+                                </a>
                             </div>
                         </div>
                     </div>

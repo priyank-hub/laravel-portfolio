@@ -27,6 +27,17 @@
                 </div>
             </b-card>
         </div>
+
+        <div style="position: fixed; bottom: 20px; right: 30px">
+            <div class="mt-5" style="margin-left: auto; text-align: right">
+                <a class="border-0 p-3" :href="this.route('works')"
+                            style="background-color: #8444df; border-radius: 50%">
+                    <span class="">
+                        <img src="/assets/right-chevron.png" style="height: 17px" class="" alt="">
+                    </span>
+                </a>
+            </div>
+        </div>
     </div>
 </template>
 
