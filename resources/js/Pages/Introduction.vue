@@ -31,7 +31,7 @@
                                 <b-button class="resume border-0 text-white" href="assets/resume.pdf" target="_blank"
                                             style="background-color: #8444df; border-radius: 30px; padding: 13px 35px">
                                     <span class="" style="font-size: 14px; letter-spacing: 2px">
-                                        Resume
+                                        My Resume
                                     </span>
                                 </b-button>
                             </div>
