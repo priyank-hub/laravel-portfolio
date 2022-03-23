@@ -1,5 +1,11 @@
 <template>
     <div class="container cont">
+        <div class="mb-3 mx-4 mx-md-0 w-100 text-muted" style="text-align: left">
+            <span style="font-family: 'Dancing Script', cursive; font-weight: 500; font-size: 19px" class="mx-3 mx-md-0">
+                <span>&lt;</span> <span>section</span> <span>></span>
+            </span>
+        </div>
+
         <div class="border-bottom col-12 head" style="">
             <span style="letter-spacing: 2px">
                 <span style="font-size: 30px; color: #942fe9;">
@@ -12,6 +18,12 @@
         <div class="col-12">
             <b-card title="" sub-title="" class="border-0 p-4 cards" style="border-radius: 30px">
                 <div class="container">
+                    <div class="mb-3 mx-md-0 w-100 text-muted" style="text-align: left">
+                        <span style="font-family: 'Dancing Script', cursive; font-weight: 500; font-size: 19px" class="mx-3 mx-md-0">
+                            <span>&lt;</span> <span>form</span> <span>></span>
+                        </span>
+                    </div>
+
                     <b-form @submit.prevent="submit" class="" style="text-align: left">
                         <div class="row justify-content-between">
                             <b-form-group label="Name" class="col-12 col-md-5 mt-4">
@@ -43,8 +55,21 @@
                             </b-button>
                         </div>
                     </b-form>
+
+                    <div class="my-3 mx-md-0 w-100 text-muted" style="text-align: right">
+                        <span style="font-family: 'Dancing Script', cursive; font-weight: 500; font-size: 19px" class="mx-3 mx-md-0">
+                            <span>&lt;/</span> <span>form</span> <span>></span>
+                        </span>
+                    </div>
+
                 </div>
             </b-card>
+        </div>
+
+        <div class="my-3 mx-3 mx-md-0 w-100 text-muted" style="text-align: left">
+            <span style="font-family: 'Dancing Script', cursive; font-weight: 500; font-size: 19px" class="mx-3 mx-md-0">
+                <span>&lt;/</span> <span>section</span> <span>></span>
+            </span>
         </div>
     </div>
 </template>
@@ -103,7 +128,7 @@ export default {
 
     .head {
         text-align: left; 
-        margin-bottom: 90px;
+        margin-bottom: 30px;
     }
 
     @media (max-width: 767px) {
@@ -111,7 +136,7 @@ export default {
             padding-top: 15px !important;
         }
         .head {
-            margin-bottom: 50px;
+            margin-bottom: 20px;
         }
 
         .send{

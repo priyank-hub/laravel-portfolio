@@ -1,6 +1,12 @@
 <template>
     <div>
         <div class="container cont" style="min-height: 100vh">
+            <div class="mb-4 mx-4 mx-md-2 w-100 text-muted" style="text-align: left">
+                <span style="font-family: 'Dancing Script', cursive; font-weight: 500; font-size: 19px" class="mx-3 mx-md-1">
+                    <span>&lt;</span> <span>section</span> <span>></span>
+                </span>
+            </div>
+
             <div class="border-bottom col-12 head" style="">
                 <span style="letter-spacing: 2px">
                     <span style="font-size: 30px; color: #942fe9;">
@@ -16,11 +22,11 @@
                     </span>
                 </span>
             </div>
-            
+
             <div class="col-12">
                 <div class="row align-items-center">
-                    <div class="col-12 col-md-12 col-lg-8 my-3">
-                        <b-card title="" sub-title="" class="border-0 p-4 cards" style="border-radius: 30px; background-color: transparent">
+                    <div class="col-12 col-md-12 col-lg-8 my-0">
+                        <b-card title="" sub-title="" class="border-0 p-1 cards" style="border-radius: 30px; background-color: transparent">
                             <div class="container px-0">
                                 <div class="skill-grid">
                                     <div class="border d-flex flex-column skill p-2 d-none" v-for="skill in skills" :key="skill.url">
@@ -39,7 +45,12 @@
                     </div>
                     <div class="col-12 col-md-12 col-lg-4">
                         <div class="container">
-                            <div class="row">
+                            <div class="w-100 text-muted" style="text-align: left">
+                                <span style="font-family: 'Dancing Script', cursive; font-weight: 500; font-size: 19px" class="">
+                                    <span>&lt;</span> <span>card</span> <span>></span>
+                                </span>
+                            </div>
+                            <div class="row mx-0 mx-md-2">
                                 <div class="col-12 col-md-6 col-lg-12 py-3">
                                     <b-card title="" sub-title="" class="skill border-0 p-2 px-1 cards d-none" style="border-radius: 20px; background-color: #fff">
                                         <b-card-title>
@@ -86,9 +97,20 @@
                                     </b-card>
                                 </div>
                             </div>
+                            <div class="mt-3 w-100 text-muted" style="text-align: left">
+                                <span style="font-family: 'Dancing Script', cursive; font-weight: 500; font-size: 19px" class="">
+                                    <span>&lt;/</span> <span>card</span> <span>></span>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="my-3 mx-3 mx-md-2 w-100 text-muted" style="text-align: left">
+                <span style="font-family: 'Dancing Script', cursive; font-weight: 500; font-size: 19px" class="mx-3 mx-md-1">
+                    <span>&lt;/</span> <span>section</span> <span>></span>
+                </span>
             </div>
         </div>
     </div>
@@ -188,7 +210,7 @@ export default {
             setTimeout(function() {
                 skill.classList.remove('d-none');
                 skill.classList.add("zoomIn");
-            },100 * i);
+            },50 * i);
             i++;
         });
     },
@@ -206,7 +228,7 @@ export default {
 .cont {
     display: flex;
     flex-direction: column;
-    padding-top: 50px;
+    padding-top: 10px;
     align-items: center;
     position: relative;
 }
@@ -241,10 +263,6 @@ export default {
 
     .cards {
         background-color: transparent;
-    }
-
-    .head {
-        /* margin-bottom: 50px; */
     }
 
     .cont {

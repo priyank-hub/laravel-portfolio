@@ -1,5 +1,11 @@
 <template>
     <div class="container cont" style="min-height: 100vh">
+        <div class="mb-2 mx-4 mx-md-0 w-100 text-muted" style="text-align: left">
+            <span style="font-family: 'Dancing Script', cursive; font-weight: 500; font-size: 19px" class="mx-3 mx-md-1">
+                <span>&lt;</span> <span>section</span> <span>></span>
+            </span>
+        </div>
+
         <div class="border-bottom col-12 head" style="">
             <span style="letter-spacing: 2px">
                 <span style="font-size: 30px; color: #942fe9;">
@@ -10,7 +16,7 @@
         </div>
         
         <div class="col-12">
-            <b-card title="" sub-title="" class="border-0 p-4 cards bg-transparent" style="border-radius: 30px">
+            <b-card title="" sub-title="" class="border-0 p-1 cards bg-transparent" style="border-radius: 30px">
                 <div class="d-flex flex-column">
                     <div style="text-align: left">
                         <span style="font-size: 22px">
@@ -127,7 +133,7 @@
         <div class="col-12">
             <b-card title="" sub-title="" class="border-0 p-4 cards bg-transparent" style="border-radius: 30px">
                 <div class="d-flex flex-column">
-                    <div style="text-align: left; position: sticky; top: 0px">
+                    <div style="text-align: left">
                         <span style="font-size: 22px">
                             UI Components
                         </span>
@@ -237,6 +243,12 @@
                     </v-app>
                 </div>
             </b-card>
+        </div>
+
+        <div class="my-3 mx-3 mx-md-0 w-100 text-muted" style="text-align: left">
+            <span style="font-family: 'Dancing Script', cursive; font-weight: 500; font-size: 19px" class="mx-3 mx-md-1">
+                <span>&lt;/</span> <span>section</span> <span>></span>
+            </span>
         </div>
     </div>
 </template>

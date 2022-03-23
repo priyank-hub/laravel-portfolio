@@ -7,8 +7,8 @@
             <div class="col-12 text-center">
                 <span class="text"> I'M A </span>
                 <div class="my-2 w-25 text-muted" style="text-align: center">
-                    <span style="font-family: 'Dancing Script', cursive; font-size: 14px">
-                        <span><</span> <span>h1</span> <span>></span>
+                    <span style="font-family: 'Dancing Script', cursive; font-size: 19px">
+                        <span>&lt;</span> <span>h1</span> <span>></span>
                     </span>
                 </div>
                 <div class="main-text">
@@ -17,15 +17,15 @@
                     </span>
                 </div>
                 <div class="my-2 text-muted" style="text-align: right; width: 90%">
-                    <span style="font-family: 'Dancing Script', cursive; font-size: 14px">
-                        <span></</span> <span>h1</span> <span>></span>
+                    <span style="font-family: 'Dancing Script', cursive; font-size: 19px">
+                        <span>&lt;/</span> <span>h1</span> <span>></span>
                     </span>
                 </div>
     
                 <div class="container" style="line-height: 2rem">
                     <div class="my-2 mx-2 mx-md-5 text-muted" style="text-align: left">
-                        <span style="font-family: 'Dancing Script', cursive; font-weight: 500; font-size: 18px" class="mx-0 mx-md-4">
-                            <span><</span> <span>p</span> <span>></span>
+                        <span style="font-family: 'Dancing Script', cursive; font-weight: 500; font-size: 19px" class="mx-0 mx-md-4">
+                            <span>&lt;</span> <span>p</span> <span>></span>
                         </span>
                     </div>
                     <div class="row justify-content-center">
@@ -40,8 +40,8 @@
                         </div>
                     </div>
                     <div class="my-2 mx-2 mx-md-5 text-muted" style="text-align: left">
-                        <span style="font-family: 'Dancing Script', cursive; font-weight: 500; font-size: 18px" class="mx-0 mx-md-4">
-                            <span></</span> <span>p</span> <span>></span>
+                        <span style="font-family: 'Dancing Script', cursive; font-weight: 500; font-size: 19px" class="mx-0 mx-md-4">
+                            <span>&lt;/</span> <span>p</span> <span>></span>
                         </span>
                     </div>
                 </div>

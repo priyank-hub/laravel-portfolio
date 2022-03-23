@@ -8,6 +8,13 @@
                 <span style="font-size: 16px">BOUT ME</span>
             </span>
         </div>
+
+        <div class="my-3 mx-2 text-muted" style="text-align: left">
+            <span style="font-family: 'Dancing Script', cursive; font-weight: 500; font-size: 19px" class="mx-0 mx-md-4">
+                <span>&lt;</span> <span>section</span> <span>></span>
+            </span>
+        </div>
+        
         <div class="">
             <div class="cards mx-3">
                 <b-card img-top class="border-0" style="border-radius: 30px">
@@ -20,7 +27,7 @@
                         </span>
                         <div class="mt-1">
                             <div class="info mt-2" style="">
-                                <p class="">
+                                <p class="" style="font-size: 14px">
                                     I'm a front-end web developer with a background in computer science and software design. 
                                     My 2 years of IT experience has given me a strong foundation for web development and building complex 
                                     solutions. Recently, I graduated from York University, Toronto in Computer Science major. 
@@ -29,36 +36,36 @@
                                 </p>
                             </div>
                             <div class="row">
-                                <div class="col-6 col-md-12 col-lg-4 p-3 icon">
+                                <div class="col-md-12 col-lg-4 p-3 icon">
                                     <div class="row">
-                                        <div class="col-12 col-md-2 sym">
+                                        <div class="col-3 sym">
                                             <i class="fas fa-phone phone"></i>
                                         </div>
-                                        <div class="col-12 col-md-10 text">
+                                        <div class="col-9 text">
                                             <span class="number"> 
                                                 +1 6479210250
                                             </span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-6 col-md-12 col-lg-4 p-3 icon">
+                                <div class="col-md-12 col-lg-4 p-3 icon">
                                     <div class="row">
-                                        <div class="col-12 col-md-2 sym">
+                                        <div class="col-3 sym">
                                             <i class="fas fa-map-marker-alt"></i>
                                         </div>
-                                        <div class="col-12 col-md-10 text">
+                                        <div class="col-9 text">
                                             <span class="number"> 
                                                 Toronto, Ontario
                                             </span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-6 col-md-12 col-lg-4 p-3 icon">
+                                <div class="col-md-12 col-lg-4 p-3 icon">
                                     <div class="row">
-                                        <div class="col-12 col-md-2 sym">
+                                        <div class="col-3 sym">
                                             <i class="fas fa-graduation-cap"></i>
                                         </div>
-                                        <div class="col-12 col-md-10 text">
+                                        <div class="col-9 text">
                                             <span class="number"> 
                                                 April 2021
                                             </span>
@@ -67,36 +74,36 @@
                                 </div>
                             <!-- </div> -->
                             <!-- <div class="row"> -->
-                                <div class="col-6 col-md-12 col-lg-4 p-3 icon">
+                                <div class="col-md-12 col-lg-4 p-3 icon">
                                     <div class="row">
-                                        <div class="col-12 col-md-2 sym">
+                                        <div class="col-3 sym">
                                             <i class="fas fa-envelope"></i>
                                         </div>
-                                        <div class="col-12 col-md-10 text">
+                                        <div class="col-9 text">
                                             <span class="number"> 
                                                 patelpriyank177@gmail.com
                                             </span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-6 col-md-12 col-lg-4 p-3 icon">
+                                <div class="col-md-12 col-lg-4 p-3 icon">
                                     <div class="row">
-                                        <div class="col-12 col-md-2 sym">
+                                        <div class="col-3 sym">
                                             <i class="fas fa-suitcase"></i>
                                         </div>
-                                        <div class="col-12 col-md-10 text">
+                                        <div class="col-9 text">
                                             <span class="number"> 
                                                 2 Years Experience
                                             </span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-6 col-md-12 col-lg-4 p-3 icon">
+                                <div class="col-md-12 col-lg-4 p-3 icon">
                                     <div class="row">
-                                        <div class="col-12 col-md-2 sym">
+                                        <div class="col-3 sym">
                                             <i class="far fa-calendar-check"></i>
                                         </div>
-                                        <div class="col-12 col-md-10 text">
+                                        <div class="col-9 text">
                                             <span class="number"> 
                                                 23 Years Old
                                             </span>
@@ -123,7 +130,12 @@
                     </b-card-text>
                 </b-card>
             </div>
+        </div>
 
+        <div class="my-3 mx-2 text-muted" style="text-align: left">
+            <span style="font-family: 'Dancing Script', cursive; font-weight: 500; font-size: 19px" class="mx-0 mx-md-4">
+                <span>&lt;/</span> <span>section</span> <span>></span>
+            </span>
         </div>
 
         <b-modal id="hire-modal" hide-footer centered fade>
@@ -194,8 +206,9 @@ export default {
 }
 
 .number {
-    font-weight: 600;
+    font-weight: 300;
     letter-spacing: 1px;
+    font-size: 14px;
 }
 
 .more-button {
@@ -228,7 +241,7 @@ export default {
 }
 
 .text {
-    text-align: left;;
+    text-align: left;
 }
 
 button.close {
@@ -293,7 +306,7 @@ button.close {
     }
 
     .text {
-        text-align: center !important;
+        text-align: left !important;
     }
 
     .hire{

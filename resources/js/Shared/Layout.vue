@@ -53,11 +53,20 @@
             </div>
         </nav>
         <div class="slot">
-            <div class="mx-4 mx-md-5">
-                <div class="pt-5" style="text-align: left">
-                    <span style="font-family: 'Dancing Script', cursive; font-size: 14px">
-                        <span><</span> <span>body</span> <span>></span>
-                    </span>
+            <div class="container-fluid">
+                <div class="mx-1 mx-md-3">
+                    <div class="pt-2" style="text-align: left">
+                        <span style="font-family: 'Dancing Script', cursive; font-size: 19px">
+                            <span>&lt;</span> <span>html</span> <span>></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="mx-2 mx-md-5">
+                    <div class="pt-1" style="text-align: left">
+                        <span style="font-family: 'Dancing Script', cursive; font-size: 19px">
+                            <span>&lt;</span> <span>body</span> <span>></span>
+                        </span>
+                    </div>
                 </div>
             </div>
 
@@ -65,16 +74,36 @@
                 <slot />
             </transition>
 
-            <div class="mx-4 mx-md-5">
-                <div class="pb-5" style="text-align: left">
-                    <span style="font-family: 'Dancing Script', cursive; font-size: 14px">
-                        <span></</span> <span>body</span> <span>></span>
-                    </span>
+            <div class="container-fluid">
+                <div class="mx-2 mx-md-5">
+                    <div class="pt-1" style="text-align: left">
+                        <span style="font-family: 'Dancing Script', cursive; font-size: 19px">
+                            <span>&lt;/</span> <span>body</span> <span>></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="mx-1 mx-md-3">
+                    <div class="pt-2" style="text-align: left">
+                        <span style="font-family: 'Dancing Script', cursive; font-size: 19px">
+                            <span>&lt;/</span> <span>html</span> <span>></span>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div style="position: fixed; bottom: 30px; right: 30px" v-if="this.$page.url !== '/contact'">
+        <div style="position: fixed; bottom: 9%; left: 10%" v-if="this.$page.url !== '/'">
+            <div class="mt-5" style="margin-right: auto; text-align: left">
+                <Link class="border-0" :href="goBackToPage()"
+                            style="background-color: #8444df; border-radius: 50%; padding: 12px">
+                    <span class="">
+                        <img src="/assets/left-chevron.png" style="height: 22px" class="" alt="">
+                    </span>
+                </Link>
+            </div>
+        </div>
+
+        <div style="position: fixed; bottom: 9%; right: 5%" v-if="this.$page.url !== '/contact'">
             <div class="mt-5" style="margin-left: auto; text-align: right">
                 <Link class="border-0 p-3" :href="goToPage()"
                             style="background-color: #8444df; border-radius: 50%">
@@ -129,6 +158,20 @@ export default {
             }
             else if (this.$page.url === '/works') {
                 return this.route('contact');
+            }
+        },
+        goBackToPage() {
+            if (this.$page.url === '/about') {
+                return this.route('home');
+            }
+            else if (this.$page.url === '/skills') {
+                return this.route('about');
+            }
+            else if (this.$page.url === '/works') {
+                return this.route('skills');
+            }
+            else if (this.$page.url === '/contact') {
+                return this.route('works');
             }
         }
     }
@@ -283,7 +326,12 @@ export default {
         /* opacity: 0.5; */
         transition: all .45s cubic-bezier(1.0, 0.5, 0.8, 1.0);
     }
-    .slide-fade-enter, .slide-fade-leave-to {
+    .slide-fade-enter {
+        transform: translateX(15%);
+        opacity: 0;
+    }
+
+    .slide-fade-leave-to {
         transform: translateX(-15%);
         opacity: 0;
     }
