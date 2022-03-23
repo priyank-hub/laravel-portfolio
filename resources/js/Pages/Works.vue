@@ -10,7 +10,7 @@
         </div>
         
         <div class="col-12">
-            <b-card title="" sub-title="" class="border-0 p-4 cards" style="border-radius: 30px">
+            <b-card title="" sub-title="" class="border-0 p-4 cards bg-transparent" style="border-radius: 30px">
                 <div class="d-flex flex-column">
                     <div style="text-align: left">
                         <span style="font-size: 22px">
@@ -125,7 +125,7 @@
         </div>
 
         <div class="col-12">
-            <b-card title="" sub-title="" class="border-0 p-4 cards" style="border-radius: 30px">
+            <b-card title="" sub-title="" class="border-0 p-4 cards bg-transparent" style="border-radius: 30px">
                 <div class="d-flex flex-column">
                     <div style="text-align: left; position: sticky; top: 0px">
                         <span style="font-size: 22px">
@@ -389,10 +389,6 @@ export default {
             display: flex;
             flex-direction: row !important;
         }
-    }
-
-    #app {
-        background-color: #fff;
     }
 
     @keyframes zoomIn {

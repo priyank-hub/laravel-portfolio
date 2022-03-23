@@ -10,35 +10,39 @@
 
         <!-- navigation bar -->
         <nav class="nav_wrapper" id="nav_wrapper">
-            <div class="logo p-3">
+            <Link class="logo p-3 text-white" :href="this.route('home')">
                 PP
-            </div>
+            </Link>
             
             <div class="nav flex-column p-4" id="nav-content">
                 <ul class="navbar-nav navigation flex-column">
                     <li class="nav-item" @click="hideSidebar()">
-                        <a class="nav-link py-3 rounded" :href="this.route('home')">
+                        <Link class="nav-link py-3 rounded" :href="this.route('home')">
                             <i class="fas fa-home"></i>
                             <span class="title">Home</span>
-                        </a>
+                        </Link>
+                        <!-- <a class="nav-link py-3 rounded" :href="this.route('home')">
+                            <i class="fas fa-home"></i>
+                            <span class="title">Home</span>
+                        </a> -->
                     </li>
                     <li class="nav-item" @click="hideSidebar()">
-                        <a class="nav-link py-3 rounded" :href="this.route('about')">
+                        <Link class="nav-link py-3 rounded" :href="this.route('about')">
                             <i class="fas fa-user"></i>
                             <div class="title">About</div>
-                        </a>
+                        </Link>
                     </li>
                     <li class="nav-item" @click="hideSidebar()">
-                        <a class="nav-link py-3 rounded" :href="this.route('skills')">
+                        <Link class="nav-link py-3 rounded" :href="this.route('skills')">
                             <i class="fas fa-code"></i>
                             <div class="title">Skills</div>
-                        </a>
+                        </Link>
                     </li>
                     <li class="nav-item" @click="hideSidebar()">
-                        <a class="nav-link py-3 rounded" :href="this.route('works')">
+                        <Link class="nav-link py-3 rounded" :href="this.route('works')">
                             <i class="fas fa-code-branch"></i>
                             <div class="title">Works</div>
-                        </a>
+                        </Link>
                     </li>
                 </ul>
             </div>
@@ -52,22 +56,24 @@
                 </a>
             </div>
         </nav>
-        <!-- main content -->
-        <div class="slot">
-            <slot />
-            <!-- <flash /> -->
-        </div>
+            <div class="slot">
+                <transition>
+                    <slot />
+                </transition>
+            </div>
     </div>
 </template>
 <script>
 // import Flash from './Flash.vue'
+import { Link } from '@inertiajs/inertia-vue'
+
 export default {
     name: 'Layout',
     props: {
 
     },
     components: {
-        // Flash,
+        Link
     },
     mounted() {
         console.log(this.$page.props);
@@ -222,6 +228,16 @@ export default {
         border-radius: 5px;
         border-left: 6px solid #a94442;
     }
+
+    .v-enter-active,
+    .v-leave-active {
+        transition: opacity 0.5s ease;
+    }
+
+    .v-enter-from,
+    .v-leave-to {
+        opacity: 0;
+    }
 </style>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
@@ -256,6 +272,11 @@ a {
 a:hover {
   color: #222 !important;
 }
+
+.nav_wrapper a:hover {
+    color: #fff !important;
+}
+
 a::after {
   content: '';
   position: absolute;

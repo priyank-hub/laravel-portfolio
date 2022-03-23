@@ -1,41 +1,105 @@
 <template>
-    <div class="container cont" style="min-height: 100vh">
-        <div class="border-bottom col-12 head" style="">
-            <span style="letter-spacing: 2px">
-                <span style="font-size: 30px; color: #942fe9;">
-                    <i class="fas fa-code mx-1" style="transform: rotate(90deg)"></i>
+    <div>
+        <div class="container cont" style="min-height: 100vh">
+            <div class="border-bottom col-12 head" style="">
+                <span style="letter-spacing: 2px">
+                    <span style="font-size: 30px; color: #942fe9;">
+                        <i class="fas fa-code mx-1" style="transform: rotate(90deg)"></i>
+                    </span>
+                    <span style="font-size: 16px">KILLS</span>
+                    <span class="mx-3">&</span>
+                    <span style="font-size: 30px; color: #942fe9;">
+                        <i class="fa-solid fa-e"></i>
+                    </span>
+                    <span style="font-size: 16px">
+                        XPERIENCE
+                    </span>
                 </span>
-                <span style="font-size: 16px">KILLS</span>
-            </span>
-        </div>
-        
-        <div class="col-12">
-            <b-card title="" sub-title="" class="border-0 p-4 cards" style="border-radius: 30px">
-                <div class="container">
-                    <div class="skill-grid">
-                        <div class="border d-flex flex-column skill p-2 d-none" v-for="skill in skills" :key="skill.url">
-                            <b-link :href="skill.website" class="row" target="_blank">
-                                <span class="col-12">
-                                    <img :src="skill.url" alt="" style="height: 35px">
-                                </span>
-                                <span class="col-12 mt-2" style="font-size: 12px; color: #222">
-                                    {{ skill.name }}
-                                </span>
-                            </b-link>
+            </div>
+            
+            <div class="col-12">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-12 col-lg-8 my-3">
+                        <b-card title="" sub-title="" class="border-0 p-4 cards" style="border-radius: 30px; background-color: transparent">
+                            <div class="container px-0">
+                                <div class="skill-grid">
+                                    <div class="border d-flex flex-column skill p-2 d-none" v-for="skill in skills" :key="skill.url">
+                                        <b-link :href="skill.website" class="row" target="_blank">
+                                            <span class="col-12">
+                                                <img :src="skill.url" alt="" style="height: 35px">
+                                            </span>
+                                            <span class="col-12 py-1 pb-2" style="font-size: 12px; color: #222">
+                                                {{ skill.name }}
+                                            </span>
+                                        </b-link>
+                                    </div>
+                                </div>
+                            </div>
+                        </b-card>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-4">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 col-md-6 col-lg-12 py-3">
+                                    <b-card title="" sub-title="" class="skill border-0 p-2 px-1 cards d-none" style="border-radius: 20px; background-color: #fff">
+                                        <b-card-title>
+                                            <div class="border-bottom pb-1" style="text-align: left">
+                                                <span class="text-dark" style="font-size: 16px; font-weight: 700">
+                                                    Frontend developer
+                                                </span>
+                                            </div>
+                                        </b-card-title>
+                                        <div class="text-left text-muted mt-3">
+                                            <span style="font-size: 14px">Taliup</span><br>
+                                            <span style="font-size: 12px" class="">
+                                                July 2021 - Present
+                                            </span>
+                                            <div class="mt-3">
+                                                <span style="font-size: 13px">
+                                                    An all-in-one order and pay solution for Canadian Restaurants, Hotels, and Retail merchants.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </b-card>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-12 py-1">
+                                    <b-card title="" sub-title="" class="skill border-0 p-2 px-3 cards d-none" style="border-radius: 20px; background-color: #fff">
+                                        <b-card-title>
+                                            <div class="border-bottom pb-1" style="text-align: left">
+                                                <span class="text-dark" style="font-size: 16px; font-weight: 700">
+                                                    Full stack developer
+                                                </span>
+                                            </div>
+                                        </b-card-title>
+                                        <div class="text-left text-muted mt-3">
+                                            <span style="font-size: 14px">Codepaper</span><br>
+                                            <span style="font-size: 12px" class="">
+                                                Jan 2020 - May 2021
+                                            </span>
+                                            <div class="mt-3">
+                                                <span style="font-size: 13px">
+                                                    Codepaper offers you a one in all solution for all your tech needs.
+                                                    Adds value to businesses through their custom software development.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </b-card>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </b-card>
-        </div>
+            </div>
 
-        <div style="position: fixed; bottom: 20px; right: 30px">
-            <div class="mt-5" style="margin-left: auto; text-align: right">
-                <a class="border-0 p-3" :href="this.route('works')"
-                            style="background-color: #8444df; border-radius: 50%">
-                    <span class="">
-                        <img src="/assets/right-chevron.png" style="height: 17px" class="" alt="">
-                    </span>
-                </a>
+            <div style="position: fixed; bottom: 20px; right: 30px">
+                <div class="mt-5" style="margin-left: auto; text-align: right">
+                    <Link class="border-0 p-3" :href="this.route('works')"
+                                style="background-color: #8444df; border-radius: 50%">
+                        <span class="">
+                            <img src="/assets/right-chevron.png" style="height: 17px" class="" alt="">
+                        </span>
+                    </Link>
+                </div>
             </div>
         </div>
     </div>
@@ -43,10 +107,14 @@
 
 <script>
 import Layout from '../Shared/Layout.vue'
+import { Link } from '@inertiajs/inertia-vue'
 export default {
     name: 'Skills',
     props: {
 
+    },
+    components: {
+        Link,
     },
     layout: Layout,
     data() {
@@ -145,7 +213,7 @@ export default {
 <style scoped>
 .head {
     text-align: left; 
-    margin-bottom: 90px;
+    /* margin-bottom: 90px; */
 }
 
 .cont {
@@ -189,7 +257,7 @@ export default {
     }
 
     .head {
-        margin-bottom: 50px;
+        /* margin-bottom: 50px; */
     }
 
     .cont {
@@ -212,5 +280,9 @@ export default {
   animation-name: zoomIn;
   animation-duration: 1s;
   animation-iteration-count: 1;
+}
+
+.text-left {
+    text-align: left;
 }
 </style>

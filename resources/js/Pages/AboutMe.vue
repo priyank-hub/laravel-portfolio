@@ -128,12 +128,12 @@
             </div>
             <div style="position: fixed; bottom: 20px; right: 30px">
                 <div class="mt-5" style="margin-left: auto; text-align: right">
-                    <a class="border-0 p-3" :href="this.route('skills')"
+                    <Link class="border-0 p-3" :href="this.route('skills')"
                                 style="background-color: #8444df; border-radius: 50%">
                         <span class="">
                             <img src="/assets/right-chevron.png" style="height: 17px" class="" alt="">
                         </span>
-                    </a>
+                    </Link>
                 </div>
             </div>
 
@@ -156,10 +156,12 @@
 </template>
 <script>
 import Layout from '../Shared/Layout.vue'
+import { Link } from '@inertiajs/inertia-vue'
 export default {
     name: "AboutMe",
     components: {
         Layout,
+        Link,
     },
     data() {
         return {
