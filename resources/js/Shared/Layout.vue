@@ -21,10 +21,6 @@
                             <i class="fas fa-home"></i>
                             <span class="title">Home</span>
                         </Link>
-                        <!-- <a class="nav-link py-3 rounded" :href="this.route('home')">
-                            <i class="fas fa-home"></i>
-                            <span class="title">Home</span>
-                        </a> -->
                     </li>
                     <li class="nav-item" @click="hideSidebar()">
                         <Link class="nav-link py-3 rounded" :href="this.route('about')">
@@ -56,11 +52,38 @@
                 </a>
             </div>
         </nav>
-            <div class="slot">
-                <transition>
-                    <slot />
-                </transition>
+        <div class="slot">
+            <div class="mx-4 mx-md-5">
+                <div class="pt-5" style="text-align: left">
+                    <span style="font-family: 'Dancing Script', cursive; font-size: 14px">
+                        <span><</span> <span>body</span> <span>></span>
+                    </span>
+                </div>
             </div>
+
+            <transition name="slide-fade">
+                <slot />
+            </transition>
+
+            <div class="mx-4 mx-md-5">
+                <div class="pb-5" style="text-align: left">
+                    <span style="font-family: 'Dancing Script', cursive; font-size: 14px">
+                        <span></</span> <span>body</span> <span>></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div style="position: fixed; bottom: 30px; right: 30px" v-if="this.$page.url !== '/contact'">
+            <div class="mt-5" style="margin-left: auto; text-align: right">
+                <Link class="border-0 p-3" :href="goToPage()"
+                            style="background-color: #8444df; border-radius: 50%">
+                    <span class="">
+                        <img src="/assets/right-chevron.png" style="height: 17px" class="" alt="">
+                    </span>
+                </Link>
+            </div>
+        </div>
     </div>
 </template>
 <script>
@@ -93,6 +116,20 @@ export default {
         hideSidebar() {
             let t = document.getElementById('nav_wrapper');
             t.classList.toggle('sideMenuShow');
+        },
+        goToPage() {
+            if (this.$page.url === '/') {
+                return this.route('about');
+            }
+            else if (this.$page.url === '/about') {
+                return this.route('skills');
+            }
+            else if (this.$page.url === '/skills') {
+                return this.route('works');
+            }
+            else if (this.$page.url === '/works') {
+                return this.route('contact');
+            }
         }
     }
 }
@@ -229,13 +266,25 @@ export default {
         border-left: 6px solid #a94442;
     }
 
-    .v-enter-active,
+    /* .v-enter-active,
     .v-leave-active {
         transition: opacity 0.5s ease;
     }
 
     .v-enter-from,
     .v-leave-to {
+        opacity: 0;
+    } */
+
+    .slide-fade-enter-active {
+        transition: all .3s ease;
+    }
+    .slide-fade-leave-active {
+        /* opacity: 0.5; */
+        transition: all .45s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    }
+    .slide-fade-enter, .slide-fade-leave-to {
+        transform: translateX(-15%);
         opacity: 0;
     }
 </style>

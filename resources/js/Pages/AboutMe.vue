@@ -1,168 +1,154 @@
 <template>
-    <Layout>
-        <div class="container section-cont">
-            <div class="border-bottom" style="text-align: left; margin-bottom: 90px">
-                <span style="letter-spacing: 2px">
-                    <span style="font-size: 30px; color: #942fe9">
-                        <i class="fas fa-user mx-2" style="color: #942fe9"></i>
-                    </span>
-                    <span style="font-size: 16px">BOUT ME</span>
+    <div class="container section-cont">
+        <div class="border-bottom" style="text-align: left; margin-bottom: 90px">
+            <span style="letter-spacing: 2px">
+                <span style="font-size: 30px; color: #942fe9">
+                    <i class="fas fa-user mx-2" style="color: #942fe9"></i>
                 </span>
-            </div>
-            <div class="">
-                <div class="cards mx-3">
-                    <b-card img-top class="border-0" style="border-radius: 30px">
-                        <div class="img-wrap">
-                            <img src="/assets/user.png" class="card-img-top" alt="">
-                        </div>
-                        <b-card-text class="my-3 py-2">
-                            <span class="name">
-                                Priyank Patel
-                            </span>
-                            <div class="mt-1">
-                                <div class="info mt-2" style="">
-                                    <p class="">
-                                        I'm a front-end web developer with a background in computer science and software design. 
-                                        My 2 years of IT experience has given me a strong foundation for web development and building complex 
-                                        solutions. Recently, I graduated from York University, Toronto in Computer Science major. 
-                                        I am passionate about coding and solving problems through code, 
-                                        and I am excited to work alongside other amazing programmers and learn so much more!
-                                    </p>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6 col-md-12 col-lg-4 p-3 icon">
-                                        <div class="row">
-                                            <div class="col-12 col-md-2 sym">
-                                                <i class="fas fa-phone phone"></i>
-                                            </div>
-                                            <div class="col-12 col-md-10 text">
-                                                <span class="number"> 
-                                                    +1 6479210250
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6 col-md-12 col-lg-4 p-3 icon">
-                                        <div class="row">
-                                            <div class="col-12 col-md-2 sym">
-                                                <i class="fas fa-map-marker-alt"></i>
-                                            </div>
-                                            <div class="col-12 col-md-10 text">
-                                                <span class="number"> 
-                                                    Toronto, Ontario
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6 col-md-12 col-lg-4 p-3 icon">
-                                        <div class="row">
-                                            <div class="col-12 col-md-2 sym">
-                                                <i class="fas fa-graduation-cap"></i>
-                                            </div>
-                                            <div class="col-12 col-md-10 text">
-                                                <span class="number"> 
-                                                    April 2021
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <!-- </div> -->
-                                <!-- <div class="row"> -->
-                                    <div class="col-6 col-md-12 col-lg-4 p-3 icon">
-                                        <div class="row">
-                                            <div class="col-12 col-md-2 sym">
-                                                <i class="fas fa-envelope"></i>
-                                            </div>
-                                            <div class="col-12 col-md-10 text">
-                                                <span class="number"> 
-                                                    patelpriyank177@gmail.com
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6 col-md-12 col-lg-4 p-3 icon">
-                                        <div class="row">
-                                            <div class="col-12 col-md-2 sym">
-                                                <i class="fas fa-suitcase"></i>
-                                            </div>
-                                            <div class="col-12 col-md-10 text">
-                                                <span class="number"> 
-                                                    2 Years Experience
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6 col-md-12 col-lg-4 p-3 icon">
-                                        <div class="row">
-                                            <div class="col-12 col-md-2 sym">
-                                                <i class="far fa-calendar-check"></i>
-                                            </div>
-                                            <div class="col-12 col-md-10 text">
-                                                <span class="number"> 
-                                                    23 Years Old
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- <div>
-                                <b-button variant="" v-b-modal.hire-modal class="more-button rounded-0 p-2 px-4 my-4">
-                                    <span class="browse">
-                                        HIRE ME
-                                    </span>
-                                    <i class="fas fa-arrow-right icon mx-2"></i>
-                                </b-button>
-                            </div> -->
-                            <div class="mt-5" style="text-align: center">
-                                <b-button class="hire border-0 text-white">
-                                    <span class="" style="font-size: 14px; letter-spacing: 2px">
-                                        Hire Me
-                                    </span>
-                                </b-button>
-                            </div>
-                        </b-card-text>
-                    </b-card>
-                </div>
-
-            </div>
-            <div style="position: fixed; bottom: 20px; right: 30px">
-                <div class="mt-5" style="margin-left: auto; text-align: right">
-                    <Link class="border-0 p-3" :href="this.route('skills')"
-                                style="background-color: #8444df; border-radius: 50%">
-                        <span class="">
-                            <img src="/assets/right-chevron.png" style="height: 17px" class="" alt="">
-                        </span>
-                    </Link>
-                </div>
-            </div>
-
-            <b-modal id="hire-modal" hide-footer centered fade>
-                <template #modal-header="{ close }">
-                    <h3 class="m-0">HIRE ME</h3>
-                    <button
-                        type="button"
-                        class="close"
-                        data-dismiss="modal"
-                        aria-label="Close"
-                        @click="close()"
-                    >
-                        <i class="fas fa-lg fa-times" />
-                    </button>
-                </template>
-            </b-modal>
+                <span style="font-size: 16px">BOUT ME</span>
+            </span>
         </div>
-    </Layout>
+        <div class="">
+            <div class="cards mx-3">
+                <b-card img-top class="border-0" style="border-radius: 30px">
+                    <div class="img-wrap">
+                        <img src="/assets/user.png" class="card-img-top" alt="">
+                    </div>
+                    <b-card-text class="my-3 py-2">
+                        <span class="name">
+                            Priyank Patel
+                        </span>
+                        <div class="mt-1">
+                            <div class="info mt-2" style="">
+                                <p class="">
+                                    I'm a front-end web developer with a background in computer science and software design. 
+                                    My 2 years of IT experience has given me a strong foundation for web development and building complex 
+                                    solutions. Recently, I graduated from York University, Toronto in Computer Science major. 
+                                    I am passionate about coding and solving problems through code, 
+                                    and I am excited to work alongside other amazing programmers and learn so much more!
+                                </p>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 col-md-12 col-lg-4 p-3 icon">
+                                    <div class="row">
+                                        <div class="col-12 col-md-2 sym">
+                                            <i class="fas fa-phone phone"></i>
+                                        </div>
+                                        <div class="col-12 col-md-10 text">
+                                            <span class="number"> 
+                                                +1 6479210250
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-12 col-lg-4 p-3 icon">
+                                    <div class="row">
+                                        <div class="col-12 col-md-2 sym">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </div>
+                                        <div class="col-12 col-md-10 text">
+                                            <span class="number"> 
+                                                Toronto, Ontario
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-12 col-lg-4 p-3 icon">
+                                    <div class="row">
+                                        <div class="col-12 col-md-2 sym">
+                                            <i class="fas fa-graduation-cap"></i>
+                                        </div>
+                                        <div class="col-12 col-md-10 text">
+                                            <span class="number"> 
+                                                April 2021
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!-- </div> -->
+                            <!-- <div class="row"> -->
+                                <div class="col-6 col-md-12 col-lg-4 p-3 icon">
+                                    <div class="row">
+                                        <div class="col-12 col-md-2 sym">
+                                            <i class="fas fa-envelope"></i>
+                                        </div>
+                                        <div class="col-12 col-md-10 text">
+                                            <span class="number"> 
+                                                patelpriyank177@gmail.com
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-12 col-lg-4 p-3 icon">
+                                    <div class="row">
+                                        <div class="col-12 col-md-2 sym">
+                                            <i class="fas fa-suitcase"></i>
+                                        </div>
+                                        <div class="col-12 col-md-10 text">
+                                            <span class="number"> 
+                                                2 Years Experience
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-12 col-lg-4 p-3 icon">
+                                    <div class="row">
+                                        <div class="col-12 col-md-2 sym">
+                                            <i class="far fa-calendar-check"></i>
+                                        </div>
+                                        <div class="col-12 col-md-10 text">
+                                            <span class="number"> 
+                                                23 Years Old
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div>
+                            <b-button variant="" v-b-modal.hire-modal class="more-button rounded-0 p-2 px-4 my-4">
+                                <span class="browse">
+                                    HIRE ME
+                                </span>
+                                <i class="fas fa-arrow-right icon mx-2"></i>
+                            </b-button>
+                        </div> -->
+                        <div class="mt-5" style="text-align: center">
+                            <b-button class="hire border-0 text-white">
+                                <span class="" style="font-size: 14px; letter-spacing: 2px">
+                                    Hire Me
+                                </span>
+                            </b-button>
+                        </div>
+                    </b-card-text>
+                </b-card>
+            </div>
+
+        </div>
+
+        <b-modal id="hire-modal" hide-footer centered fade>
+            <template #modal-header="{ close }">
+                <h3 class="m-0">HIRE ME</h3>
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    @click="close()"
+                >
+                    <i class="fas fa-lg fa-times" />
+                </button>
+            </template>
+        </b-modal>
+    </div>
 </template>
 <script>
 import Layout from '../Shared/Layout.vue'
-import { Link } from '@inertiajs/inertia-vue'
 export default {
     name: "AboutMe",
     components: {
-        Layout,
-        Link,
     },
+    layout: Layout,
     data() {
         return {
             showHireModal: false,

@@ -1,119 +1,121 @@
 <template>
-    <Layout>
-        <div class="container cont" style="min-height: 100vh">
-            <div class="d-flex flex-column" style="margin-top: 30px;">
-                <div class="col-12 text-center">
-                    <span class="text"> I'M A </span>
-                    <div class="main-text" >
-                        <span id="main-title">
-                            {{ this.title.toUpperCase() }}
+    <div class="container cont" style="min-height: 100vh">
+        <div v-if="loading">
+            <loader-screen />
+        </div>
+        <div v-else class="d-flex flex-column" style="margin-top: 30px;">
+            <div class="col-12 text-center">
+                <span class="text"> I'M A </span>
+                <div class="my-2 w-25 text-muted" style="text-align: center">
+                    <span style="font-family: 'Dancing Script', cursive; font-size: 14px">
+                        <span><</span> <span>h1</span> <span>></span>
+                    </span>
+                </div>
+                <div class="main-text">
+                    <span id="main-title">
+                        {{ this.title.toUpperCase() }}
+                    </span>
+                </div>
+                <div class="my-2 text-muted" style="text-align: right; width: 90%">
+                    <span style="font-family: 'Dancing Script', cursive; font-size: 14px">
+                        <span></</span> <span>h1</span> <span>></span>
+                    </span>
+                </div>
+    
+                <div class="container" style="line-height: 2rem">
+                    <div class="my-2 mx-2 mx-md-5 text-muted" style="text-align: left">
+                        <span style="font-family: 'Dancing Script', cursive; font-weight: 500; font-size: 18px" class="mx-0 mx-md-4">
+                            <span><</span> <span>p</span> <span>></span>
                         </span>
                     </div>
-        
-                    <div class="container" style="line-height: 2rem">
-                        <div class="row justify-content-center">
-                            <div class="col-12 col-md-10">
-                                A 
-                                <span style="color: #8444df; font-weight: 700">    
-                                    FRONT END 
-                                </span>
-                                web developer is responsible for implementing visual and interactive elements that users engage with 
-                                through their web browser when using a web application. They are usually supported by back-end web developers, 
-                                who are responsible for server-side application logic and integration of the work front-end developers do.
-                            </div>
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-10">
+                            A 
+                            <span style="color: #8444df; font-weight: 700">    
+                                FRONT END 
+                            </span>
+                            web developer is responsible for implementing visual and interactive elements that users engage with 
+                            through their web browser when using a web application. They are usually supported by back-end web developers, 
+                            who are responsible for server-side application logic and integration of the work front-end developers do.
                         </div>
                     </div>
+                    <div class="my-2 mx-2 mx-md-5 text-muted" style="text-align: left">
+                        <span style="font-family: 'Dancing Script', cursive; font-weight: 500; font-size: 18px" class="mx-0 mx-md-4">
+                            <span></</span> <span>p</span> <span>></span>
+                        </span>
+                    </div>
                 </div>
-                <div class="col-12 my-2">
-                    <div class="container">
-                        <div class="row" style="justify-content: center">
-                            <div class="col-12 col-md-3 mt-3">
-                                <b-button class="resume border-0 text-white" href="assets/resume.pdf" target="_blank"
-                                            style="background-color: #8444df; border-radius: 30px; padding: 13px 35px">
-                                    <span class="" style="font-size: 14px; letter-spacing: 2px">
-                                        My Resume
-                                    </span>
-                                </b-button>
-                            </div>
-                            <div class="col-12 col-md-6 mt-4">
-                                <div class="row justify-content-center">
-                                    <div class="col-3 col-md-2">
-                                        <b-button variant="" class="social p-2 px-3 bg-white border-0 rounded" href="https://www.linkedin.com/in/priyank9/" target="_blank">
-                                            <i class="fab fa-linkedin-in" style="color: #942fe9"></i>
-                                        </b-button>
-                                    </div>
-
-                                    <div class="col-3 col-md-2">
-                                        <b-button variant="" class="social p-2 px-3 bg-white border-0 rounded" href="https://github.com/priyank-hub" target="_blank">
-                                            <i class="fab fa-github" style="color: #942fe9"></i>
-                                        </b-button>
-                                    </div>
-
-                                    <div class="col-3 col-md-2">
-                                        <b-button variant="" class="social p-2 px-3 bg-white border-0 rounded" href="https://www.facebook.com/profile.php?id=100005557957435" target="_blank">
-                                            <i class="fab fa-facebook" style="color: #942fe9"></i>
-                                        </b-button>
-                                    </div>
-
-                                    <div class="col-3 col-md-2">
-                                        <b-button variant="" class="social p-2 px-3 bg-white border-0 rounded" href="https://www.instagram.com/patel.prynk/" target="_blank">
-                                            <i class="fab fa-instagram" style="color: #942fe9"></i>
-                                        </b-button>
-                                    </div>                                
-                                </div>
-                            </div>
-                            <!-- <div class="col-12 mt-5" style="margin-left: auto; text-align: right">
-                                <a class="border-0" :href="this.route('about')"
-                                            style="background-color: transparent">
-                                    <span style="font-size: 13px; letter-spacing: 2px; border-bottom: 2px solid #8444df" class="text-dark p-1">
-                                        About Me
-                                    </span>
-                                    <span class="mx-1">
-                                        <img src="/assets/right-chevron.png" style="height: 12px" alt="">
-                                    </span>
-                                </a>
-                            </div> -->
+            </div>
+            <div class="col-12 my-2">
+                <div class="container">
+                    <div class="row" style="justify-content: center">
+                        <div class="col-12 col-md-3 mt-3">
+                            <b-button class="resume border-0 text-white" href="assets/resume.pdf" target="_blank"
+                                        style="background-color: #8444df; border-radius: 30px; padding: 13px 35px">
+                                <span class="" style="font-size: 14px; letter-spacing: 2px">
+                                    My Resume
+                                </span>
+                            </b-button>
                         </div>
+                        <div class="col-12 col-md-6 mt-4">
+                            <div class="row justify-content-center">
+                                <div class="col-3 col-md-2">
+                                    <b-button variant="" class="social p-2 px-3 bg-white border-0 rounded" href="https://www.linkedin.com/in/priyank9/" target="_blank">
+                                        <i class="fab fa-linkedin-in" style="color: #942fe9"></i>
+                                    </b-button>
+                                </div>
 
-                        <div style="position: fixed; bottom: 20px; right: 30px">
-                            <div class="mt-5" style="margin-left: auto; text-align: right">
-                                <Link class="border-0 p-3" :href="this.route('about')"
-                                            style="background-color: #8444df; border-radius: 50%">
-                                    <span class="">
-                                        <img src="/assets/right-chevron.png" style="height: 17px" class="" alt="">
-                                    </span>
-                                </Link>
+                                <div class="col-3 col-md-2">
+                                    <b-button variant="" class="social p-2 px-3 bg-white border-0 rounded" href="https://github.com/priyank-hub" target="_blank">
+                                        <i class="fab fa-github" style="color: #942fe9"></i>
+                                    </b-button>
+                                </div>
+
+                                <div class="col-3 col-md-2">
+                                    <b-button variant="" class="social p-2 px-3 bg-white border-0 rounded" href="https://www.facebook.com/profile.php?id=100005557957435" target="_blank">
+                                        <i class="fab fa-facebook" style="color: #942fe9"></i>
+                                    </b-button>
+                                </div>
+
+                                <div class="col-3 col-md-2">
+                                    <b-button variant="" class="social p-2 px-3 bg-white border-0 rounded" href="https://www.instagram.com/patel.prynk/" target="_blank">
+                                        <i class="fab fa-instagram" style="color: #942fe9"></i>
+                                    </b-button>
+                                </div>                                
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-    </Layout>
+    </div>
 </template>
 <script>
 import Layout from '../Shared/Layout.vue'
-import { Link } from '@inertiajs/inertia-vue'
+import LoaderScreen from '../Shared/LoaderScreen';
+
 export default {
     name: "Introduction",
     props: {
     },
     components: {
-        Layout,
-        Link,
+        LoaderScreen,
     },
+    layout: Layout,
     data() {
         return {
             title: '',
             titles: ['FrontEnd Developer', 'Designer'],
             index: 0,
+            loading: false,
         }
     },
     mounted() {
+        this.loading = true;
         setInterval(() => {
             let i = this.index == 0 ? 1 : 0;
             this.title = this.titles[i];
+            this.loading = false;
             this.index = this.index == 0 ? 1 : 0;
         }, 1700);        
     },
@@ -143,6 +145,7 @@ export default {
 
 .main-text {
     font-size: 80px;
+    width: 100%;
     font-weight: 800;
     margin-top: 20px;
     margin-bottom: 20px;
