@@ -1,6 +1,6 @@
 <template>
     <div class="container cont">
-        <div class="mb-3 mx-4 mx-md-0 w-100 text-muted" style="text-align: left">
+        <div class="mb-3 mx-4 mx-md-0 w-100" style="text-align: left">
             <span style="font-family: 'Dancing Script', cursive; font-weight: 500; font-size: 19px" class="mx-3 mx-md-0">
                 <span>&lt;</span> <span>section</span> <span>></span>
             </span>
@@ -15,58 +15,76 @@
             </span>
         </div>
 
-        <div class="col-12">
-            <b-card title="" sub-title="" class="border-0 p-4 cards" style="border-radius: 30px">
-                <div class="container">
-                    <div class="mb-3 mx-md-0 w-100 text-muted" style="text-align: left">
-                        <span style="font-family: 'Dancing Script', cursive; font-weight: 500; font-size: 19px" class="mx-3 mx-md-0">
-                            <span>&lt;</span> <span>form</span> <span>></span>
-                        </span>
-                    </div>
+        <div class="row w-100 justify-content-center">
+            <div class="col-12 col-md-12 col-lg-12">
+                <b-card title="" sub-title="" class="border-0 p-4 cards" style="border-radius: 30px">
+                    <div class="container">
+                        <div class="mb-3 mx-md-0 w-100" style="text-align: left">
+                            <span style="font-family: 'Dancing Script', cursive; font-weight: 500; font-size: 19px" class="mx-3 mx-md-0">
+                                <span>&lt;</span> <span>form</span> <span>></span>
+                            </span>
+                        </div>
 
-                    <b-form @submit.prevent="submit" class="" style="text-align: left">
-                        <div class="row justify-content-between">
-                            <b-form-group label="Name" class="col-12 col-md-5 mt-4">
-                                <b-form-input id="name" class="" v-model="form.name" placeholder="Your Name" style="border: 1px solid #e6e6e6" required>
+                        <b-form @submit.prevent="submit" class="" style="text-align: left">
+                            <div class="row justify-content-between">
+                                <b-form-group label="Name" class="col-12 col-md-5 mt-4">
+                                    <b-form-input id="name" class="" v-model="form.name" placeholder="Your Name" style="border: 1px solid #e6e6e6" required>
+                                    </b-form-input>
+                                </b-form-group>
+
+                                <b-form-group label="Email" class="col-12 col-md-5 mt-4">
+                                    <b-form-input class="" v-model="form.email" placeholder="Your Email" style="border: 1px solid #e6e6e6" required>
+                                    </b-form-input>
+                                </b-form-group>
+                            </div>
+
+                            <b-form-group label="Subject" class="col-12 col-md-12 mt-4">
+                                <b-form-input class="" v-model="form.subject" placeholder="Subject (Optional)" style="border: 1px solid #e6e6e6">
                                 </b-form-input>
                             </b-form-group>
 
-                            <b-form-group label="Email" class="col-12 col-md-5 mt-4">
-                                <b-form-input class="" v-model="form.email" placeholder="Your Email" style="border: 1px solid #e6e6e6" required>
-                                </b-form-input>
+                            <b-form-group label="Message" class="col-12 mt-4">
+                                <b-form-textarea rows="4" class="" v-model="form.message" placeholder="Your Message" style="border: 1px solid #e6e6e6" required>
+                                </b-form-textarea>
                             </b-form-group>
+
+                            <div class="mt-5" style="text-align: center">
+                                <b-button type="submit" class="send border-0 text-white">
+                                    <span class="" style="font-size: 14px; letter-spacing: 2px">
+                                        SEND
+                                    </span>
+                                </b-button>
+                            </div>
+                        </b-form>
+
+                        <div class="my-3 mx-md-0 w-100" style="text-align: right">
+                            <span style="font-family: 'Dancing Script', cursive; font-weight: 500; font-size: 19px" class="mx-3 mx-md-0">
+                                <span>&lt;/</span> <span>form</span> <span>></span>
+                            </span>
                         </div>
 
-                        <b-form-group label="Subject" class="col-12 col-md-12 mt-4">
-                            <b-form-input class="" v-model="form.subject" placeholder="Subject (Optional)" style="border: 1px solid #e6e6e6">
-                            </b-form-input>
-                        </b-form-group>
-
-                        <b-form-group label="Message" class="col-12 mt-4">
-                            <b-form-textarea rows="4" class="" v-model="form.message" placeholder="Your Message" style="border: 1px solid #e6e6e6" required>
-                            </b-form-textarea>
-                        </b-form-group>
-
-                        <div class="mt-5" style="text-align: center">
-                            <b-button type="submit" class="send border-0 text-white">
-                                <span class="" style="font-size: 14px; letter-spacing: 2px">
-                                    SEND
-                                </span>
-                            </b-button>
-                        </div>
-                    </b-form>
-
-                    <div class="my-3 mx-md-0 w-100 text-muted" style="text-align: right">
-                        <span style="font-family: 'Dancing Script', cursive; font-weight: 500; font-size: 19px" class="mx-3 mx-md-0">
-                            <span>&lt;/</span> <span>form</span> <span>></span>
-                        </span>
                     </div>
-
-                </div>
-            </b-card>
+                </b-card>
+            </div>
         </div>
 
-        <div class="my-3 mx-3 mx-md-0 w-100 text-muted" style="text-align: left">
+        <div class="mb-1 mt-4 mx-5 mx-md-2 w-100" style="text-align: left">
+            <span style="font-family: 'Dancing Script', cursive; font-weight: 500; font-size: 19px" class="">
+                <span>&lt;</span> <span>map</span> <span>></span>
+            </span>
+        </div>
+        
+        <div class="" style="width: 100%; height: 400px">
+            <LeafletMap />
+        </div>
+
+        <div class="mt-1 mb-4 mx-5 mx-md-2 w-100" style="text-align: left">
+            <span style="font-family: 'Dancing Script', cursive; font-weight: 500; font-size: 19px" class="">
+                <span>&lt;/</span> <span>map</span> <span>></span>
+            </span>
+        </div>
+
+        <div class="my-3 mx-3 mx-md-0 w-100" style="text-align: left">
             <span style="font-family: 'Dancing Script', cursive; font-weight: 500; font-size: 19px" class="mx-3 mx-md-0">
                 <span>&lt;/</span> <span>section</span> <span>></span>
             </span>
@@ -75,8 +93,10 @@
 </template>
 
 <script>
-import Layout from '../Shared/Layout.vue'
+import Layout from '../Shared/Layout'
+import LeafletMap from '../Shared/LeafletMap'
 import axios from 'axios';
+
 export default {
     name: 'Contact',
     props: {
@@ -95,7 +115,7 @@ export default {
         }
     },
     components: {
-
+        LeafletMap
     },
     methods: {
         async submit() {
